@@ -1,0 +1,62 @@
+[
+    {
+			"Position": 5,
+			"Creator": "John Savelid",
+			"Date": "2017-11-19T10:06:00",
+			"Heading": "We postpone our open kayak weekend",		
+			"Id": "4",
+			"LinkText": "Kayak tours",
+			"LinkUrl": "/adventures/kayak-weekend",
+			"Text": "Due to the long winter we postpone our open kayak tour one month to the 18-21 July. But of cource you can book a private tour earlier than that if you want.",
+			"Picture": {
+				"Alt": "Kayak in the archipelago",
+				"Categories": "",
+				"Date": "2018-02-08T00:00:00",
+				"FileName": "kayak001",
+				"Format": "News",
+				"FormatedUrl": "/images/500/kayak001.jpg",
+				"Id": "52",
+				"Owner": "Robin"
+			}
+		},
+		{
+			"Position": 4,
+			"Creator": "John Savelid",
+			"Date": "2017-11-19T10:06:00",
+			"Heading": "Fantastic skiing – cold and sunny – for weeks",
+			"Id": "4",
+			"LinkText": "Skiing",
+			"LinkUrl": "/adventures/skiing-weekend",
+			"Text": "Fantastic weather in the mountain during our skiing season. Our guests was really spoiled. We are now working with the program for our skiing tours for next winter, will be ready during May. If you are interested don't hesitate to contact us.",	
+			"Picture": {
+				"Alt": "Cross country skiing",
+				"Categories": "",
+				"Date": "2018-02-08T00:00:00",
+				"FileName": "skiing004",
+				"Format": "News",
+				"FormatedUrl": "/images/500/skiing004.jpg",
+				"Id": "52",
+				"Owner": "Robin"
+			}
+		},
+		{
+			"Position": 3,
+			"Creator": "John Savelid",
+			"Date": "2017-11-19T10:06:00",
+			"Heading": "A great skating season",
+			"Id": "4",
+			"LinkText": "Skating",
+			"LinkUrl": "/adventures/skating-weekend",
+			"Text": "The never ending skating season. Good skating conditions even in April, one month longer than normal. And with more guests than ever before. We are more than happy with this winter. Now the dates for the weekendtours 2019 are ready.",	
+			"Picture": {
+				"Alt": "Ice skating on Vättern",
+				"Categories": "",
+				"Date": "2018-02-08T00:00:00",
+				"FileName": "skating007",
+				"Format": "News",
+				"FormatedUrl": "images/500/skating007.jpg",
+				"Id": "52",
+				"Owner": "Robin"
+			}
+		}
+	]

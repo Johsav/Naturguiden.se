@@ -14,7 +14,7 @@
         </style>
 
                 <div id="newsFeed">
-                    <iron-ajax auto url="http://api.naturguiden.com/api/News" handle-as="json" timeout="10000" last-response="{{ajaxResponse}}"
+                    <iron-ajax auto url="/news/news.json" handle-as="json" timeout="10000" last-response="{{ajaxResponse}}"
                         id="ajaxRequest"></iron-ajax>
 
                     <template is="dom-repeat" items="[[ajaxResponse]]">
