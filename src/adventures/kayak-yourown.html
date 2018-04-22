@@ -1,0 +1,169 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../elements/my-left-image-paper-card.html">
+<link rel="import" href="../../elements/my-package-info.html">
+<link rel="import" href="../../elements/my-inquiry-button.html">
+<link rel="import" href="../../elements/my-inquiry-card.html">
+<link rel="import" href="../../elements/materialize-slider-kayak.html">
+
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="kayak-yourown">
+
+    <template>
+        <style is="custom-style" include="iron-flex iron-flex-alignment shared-styles">
+            /* CSS rules for your element */
+        </style>
+
+        <!-- local DOM for your element -->
+
+        <div class="layout horizontal layout-start pageWidth pageMargin">
+            <div>
+                <template is="dom-if" if="{{desktop}}">
+                    <materialize-slider-kayak desktop>
+                        <paper-spinner-lite alt="Loading slider" active></paper-spinner-lite>
+                    </materialize-slider-kayak>
+                </template>
+
+                <paper-card class="flow-text">
+                    <div class="card-content">
+
+                        <h1>Your own kayak adventure</h1>
+                        <p class="lead">Enjoy the beatifull archipelago of Sweden. Between islands and skerries, out in the open sea and
+                            in secluded caves. We sleep in tents on the islands along the way, prepare the food over open
+                            fire and wash ourselves in rock pools of the Baltic Sea.</p>
+                        <p>With kayak out on the Baltic sea. Out among thousands of islands, most of them unsettled. The Swedish
+                            “allemansrätt” gives us the opportunity to stay on any one of them. There is no fixed tour, the
+                            wind and waves affect our plans and you never know where to spend the night. During the day we
+                            take several stops, for a meal or just to stretch our legs. In the evening, after a swim we make
+                            a fire and start making dinner. Maybe we manage to catch some fish that we can fry in the pan.</p>
+                        <P>
+                            You decide how you like to spend the days. How fast and long we go with the kayak. How much time you like to spend on
+                            the islands, swiming or just relaxing.
+                        </P>
+
+                        <P>Below you have all information you need, but if you still have some more questions, don't hesitate
+                            to contact us on info@naturguiden.se or on +46 70 53 53 630.</P>
+
+                        <div class="high-light">
+                            <h2>Book your own skating tour</h2>
+                            <h4>Price: from 490 EUR (4 day/ 3 nights)</h4>
+                            <p>Everything included, accommodation in tent, normally two persons / tent</br>
+                                But you need to bring sleeping bag and camping mattress, or rent them for 30 EUR</p>
+
+                            <h4>More days</h4>
+                            <p>If you like to stay longer than 4 days
+                                <br /> You pay from: 75 EUR/day (depending on number of participants)
+                            </p>
+                        </div>
+
+
+                        <h3>A normal day in the archipelago</h3>
+                        <p>We start with breakfast prepared at the shoreline on the camping stove, maybe porridge, bread and
+                            tea/coffee. Then we put down our tents and stove everything in our kayaks. We head off out between
+                            the islands. The weather and wind decide were we go, out on the open or close to the islands.</p>
+                        <p>At lunch time we find a nice spot where we can prepare our lunch, take a swim or just stroll along
+                            the shore line</p>
+                        <p>In the evening we take a swim, spend time around the fire, and make dinner over open fire. Maybe
+                            someone tries to catch a fish that we can eat as well. Just enjoy</p>
+
+                        <h3>Meeting point</h3>
+                        <p>Normally we start our tours in Trosa, south of Stockholm. But we are open for other options if that
+                            suits you better</p>
+
+                        <h3>Time:</h3>
+                        <p>Any time you like, you decide when we we will meet and how long we will stay</p>
+
+                        <h3>Accommodation: Tents or hostel if you prefer that</h3>
+                        <P>You will sleep in a tent on an island in the archipelago. Normally two persons in each tent.
+                            <br /> You need to bring a sleeping bag and camping mattress, or rent them for 30 EUR.
+                            <br /> We prepare the meals together over open fire or on a camping stove. All food is provided and
+                            included in the price.</P>
+
+                        <h3>Personal equipment</h3>
+                        <p>Clothing suitable for kayaking, rain clothes and swimwear, sleeping bag and camping mattress, sun glasses
+                        </p>
+                        <P>Good to have but not necessary: Hat for the sun, or rain, dry bag for your mobile/camera.</p>
+
+                        <h3>Equipment included</h3>
+                        <p>Kayak, life jacket, tent, maps.
+                            <br /> Normally we provide single kayaks K1, but if you prefer a two seat kayak K2 we provide that
+                            for you</p>
+
+                        <h3>
+                            <div class="not">Not included</div>
+                        </h3>
+                        <P>Alcoholic drinks</P>
+
+
+                        <h3>Included in the price</h3>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td item-width="100">Day I </td>
+                                        <td>Lunch, dinner, guide, rent of equipment</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Day II - xx </td>
+                                        <td>Breakfast, lunch, dinner, guide, rent of equipment</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last day </td>
+                                        <td>Breakfast, lunch, guide,rent of equipment</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </paper-card>
+                <my-inquiry-card></my-inquiry-card>
+            </div>
+            <div class="packageWidthPlaceholder"></div>
+            <div class="packageWidth">
+
+                <my-package-info header="Kayak" subheader="weekend tour" season="May - October" price="From €490" days="4 days/ 3 nights"
+                    lodging="Tent in the archipelago" link="/adventures/kayak-weekend" desktop="{{desktop}}">
+                    <div class="card-content">
+                        An all inclusive guided kayak tour for small groups out in the archipelago of Sweden. Meeting point Trosa harbour south of
+                        Stockholm.
+                    </div>
+                </my-package-info>
+                <my-package-info header="Kayak" subheader="private tour" season="May - October" price="From €490" days="4 days/ 3 nights"
+                    lodging="Tent" active link="/adventures/kayak-yourown" desktop="{{desktop}}">
+                    <div class="card-content">
+                        Book your own kayak tour with friends or family. Come any day and stay as long as you want.
+                    </div>
+                </my-package-info>
+                <my-inquiry-button hidden="{{!desktop}}"></my-inquiry-button>
+
+            </div>
+        </div>
+        <template is="dom-if" if="{{!desktop}}">
+            <div class="layout horizontal layout-start pageWidth pageMargin">
+                <paper-card>
+                    <materialize-slider-kayak desktop>
+                        <paper-spinner-lite alt="Loading slider" active></paper-spinner-lite>
+                    </materialize-slider-kayak>
+                </paper-card>
+            </div>
+        </template>
+    </template>
+
+    <script>
+        // element registration
+        Polymer({
+            is: "kayak-yourown",
+            properties: {
+                desktop: {
+                    type: Boolean,
+                    reflectToAttribute: true
+                }
+            }
+        });
+    </script>
+</dom-module>

@@ -1,0 +1,51 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="ng-inquiry-success">
+
+    <template>
+        <style is="custom-style" include="shared-styles">
+            /* CSS rules for your element */
+            paper-card {
+                margin:16px;
+                width: calc(100% - 32px);
+            }
+        </style>
+
+        <!-- local DOM for your element -->
+        <paper-card>
+            <div class="card-content">
+                <h3>Success</h3>
+
+                <h3>Thank you for your message!</h3>
+
+                <p>You will soon recive a confirmation e-mail.</p>
+                <p>If you do not recive anything from us within 5 minutes: </p>
+                <ul class="flame-list">
+                    <li>Check your spam folder</li>
+                    <li>Contact us through e-mail or phone</li>
+                </ul>
+
+                <p>Contact information can be found here: <a href="/about/contact">http://www.naturguiden.com/about/contact</a></p>
+
+                <h3><a href="/">Return to the start page</a></h3>
+            </div>
+        </paper-card>
+    </template>
+
+    <script>
+        // element registration
+        Polymer({
+          is: "ng-inquiry-success",
+
+          // add properties and methods on the element's prototype
+
+          properties: {
+            // declare properties for the element's public API
+          }
+        });
+      </script>
+
+</dom-module>

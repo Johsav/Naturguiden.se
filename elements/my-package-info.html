@@ -1,0 +1,158 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="../src/shared-styles.html">
+
+<dom-module id="my-package-info">
+    <template data-ng-if="{{desctop}}">
+        <style include="shared-styles">
+            .card-content p {
+                font-size: 0.85em;
+            }
+            a{
+                color: inherit;
+            }
+            h1{
+                font-size: 2em;
+                font-weight: lighter;
+                margin:0;
+                padding:0;
+            }
+            h2{
+                margin-top:0;
+                font-size: 1.3em;
+            }
+            dl{
+                margin:0;
+            }
+            .active .card-content,
+            .active ::content .card-content,
+            .active .card-content h1,
+            .active .card-content h2,
+            .active .rotate{
+                color:white;
+            }
+            .active paper-card{
+                background-color: var(--app-header-color);
+            }
+            paper-card.mobile{
+                height: 180px;
+            }
+            .rotate {
+
+                /* Safari */
+                -webkit-transform: rotate(-90deg);
+                
+                /* Firefox */
+                -moz-transform: rotate(-90deg);
+                
+                /* IE */
+                -ms-transform: rotate(-90deg);
+                
+                /* Opera */
+                -o-transform: rotate(-90deg);
+                
+                float: left;
+
+                white-space: nowrap;
+
+                height: 55px;
+                width: 150px;
+                margin-left: -40px;
+                margin-top: 60px;
+                }
+            
+        </style>
+            <a href="[[link]]" id="package">
+                <paper-card class="flow-text" hidden={{!desktop}}>
+                    <div class="card-content">
+                        <h1>[[header]]</h1>
+                        <h2>[[subheader]]</h2>
+                        <p><content></content></p>
+                        <dl class="dl-horizontal">
+                            <dt>Season:</dt>
+                            <dd>[[season]]</dd>
+                        </dl>
+                        <dl>
+                            <dt>Days:</dt>
+                            <dd>[[days]]></dd>
+                        </dl>
+                        <dl>
+                            <dt>Price:</dt>
+                            <dd>[[price]]</dd>
+                        </dl>
+                        <dl>
+                            <dt>Lodging:</dt>
+                            <dd>[[lodging]]</dd>
+                        </dl>    
+                    </div>
+                </paper-card>
+                <paper-card class="flow-text" hidden={{desktop}} class="mobile" style="height:180px">
+                        <div class="rotate">
+                                <h2>[[subheader]]</h2>
+                        </div>
+                </paper-card>
+            </a>
+
+
+    </template>
+
+    <script>
+    Polymer({
+        is: 'my-package-info',
+
+        properties: {
+            header:{
+                type: String,
+                reflectToAttribute: true
+            },
+            subheader:{
+                type: String,
+                reflectToAttribute: true
+            },
+            season:{
+                type: String,
+                reflectToAttribute: true
+            },
+            price:{
+                type: String,
+                reflectToAttribute: true
+            },
+            days:{
+                type: String,
+                reflectToAttribute: true
+            },
+            lodging:{
+                type: String,
+                reflectToAttribute: true
+            },
+            link:{
+                type: String,
+                reflectToAttribute: true
+            },
+            active:{
+                type: Boolean,
+                value: false,
+                reflectToAttribute: true,
+                observer: '_isActive'
+            },
+            desktop:{
+                type: Boolean,
+                reflectToAttribute: true
+            }
+        },
+
+        _isActive: function() {
+            if(this.active) {
+                this.$.package.classList.add('active');
+            }
+            else{
+                this.$.package.classList.remove('active');
+            }
+        }
+    });
+
+    </script>
+
+</dom-module>

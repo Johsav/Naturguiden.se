@@ -1,0 +1,541 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-grid/app-grid-style.html">
+<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+
+<link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/paper-spinner/paper-spinner-lite.html">
+
+<link rel="import" href="../images/my-icons.html">
+<!--<link rel="import" href="../elements/my-dialog-img.html">-->
+
+<link rel="import" href="shared-styles.html">
+
+<!--<link rel="import" href="ng-pictures.html">-->
+
+<dom-module id="ng-app">
+    <template>
+        <style is="custom-style" include="shared-styles app-grid-style">
+            :host {
+                --app-grid-columns: 1;
+                --app-grid-expandible-item-columns: 1;
+
+                --app-primary-color: #4285f4;
+                --app-secondary-color: black;
+                --app-header-color: #00008b;
+                --softer-text-color: #444;
+                display: block;
+            }
+            
+            app-header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 64px;
+                color: #fff;
+                background-color: var(--app-header-color);
+                /*--app-header-background-front-layer: {
+
+                }
+                ;
+                --app-header-background-rear-layer: {
+                    background-color: var(--app-header-color);
+                }
+                ;*/
+            }
+            app-header.dynamicHeader {
+                background-color: var(--app-header-color);
+            }
+
+            [condensed-title],
+            [main-title] {
+                margin-left: 16px;
+                overflow: hidden;
+                height: 48px;
+                font-size: 20px;
+            }
+
+            [main-title] img,
+            [condensed-title] img {
+                height: 100%;
+            }
+
+            [main-title] {
+                position: absolute;
+                bottom: 8px;
+                left: 72px;
+                margin: 0;
+                height: 48px;
+                font-size: 20px;
+            }
+        
+            app-header paper-icon-button,
+            app-header a paper-icon-button{
+                --paper-icon-button-ink-color: white;
+                color:white;
+            }
+            
+            #drawer app-toolbar {
+                background: #F44336;
+                color: white;
+                font-size: 24px;
+                margin-bottom: 12px;
+            }
+            
+            .drawer-list .subheader {
+                color: #9e9e9e;
+                cursor: default;
+                padding: 0 16px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-weight: 500;
+                line-height: 48px;
+                text-transform: uppercase;
+            }
+            
+            .drawer-list a:last-child {
+                margin-bottom: 24px;
+            }
+            
+            .drawer-list .divider {
+                padding: 0;
+                margin: 12px 0;
+                border-bottom: 1px solid #EEEEEE;
+            }
+            
+            .drawer-list iron-icon {
+                margin-right: 16px;
+            }
+            
+            .drawer-list a {
+                display: block;
+                padding: 0 16px;
+                text-decoration: none;
+                color: var(--softer-text-color);
+                line-height: 48px;
+            }
+            
+            .drawer-list a:hover {
+                background-color: #F5F5F5
+            }
+            
+            .drawer-list a.iron-selected {
+                color: white;
+                background-color: #039be5
+            }
+            
+            paper-tabs {
+                position: absolute;
+                bottom: 0px;
+                left: 320px;
+                width: 440px;
+            }
+            
+            paper-tab a {
+                color: inherit;
+                text-transform: uppercase;
+                text-decoration: none;
+                line-height: 48px;
+                text-align: center;
+            }
+            
+            footer {
+                padding: 16px 40px;
+                color: rgb(158, 158, 158);
+                background-color: rgb(66, 66, 66);
+                margin-top: 24px
+            }
+            
+            footer h3 {
+                color: #DDD;
+                font-weight: lighter;
+                font-size: 1.5em;
+                margin: 0;
+            }
+            
+            .footer-checkbox:checked + .footer-heading:after {
+                content: '\02C7';
+                font-size: 24px;
+            }
+            
+            .footer-checkbox + .footer-heading:after {
+                content: '\02C6';
+                font-size: 24px;
+            }
+            
+            .footer-checkbox {
+                position: absolute;
+                width: calc(100% - 40px);
+                height: 40px;
+                padding: 0;
+                margin: 0;
+                margin-top: 0;
+                cursor: pointer;
+                z-index: 1;
+                opacity: 0.0;
+            }
+            
+            .footer-heading {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            
+            .footer-heading:after {
+                content: '';
+                position: absolute;
+                right: 0;
+                margin-top: -16px;
+                display: block;
+                width: 23.8px;
+                height: 23.8px;
+                background-size: cover;
+            }
+            
+            .footer-checkbox:checked ~ .footer-list,
+            .footer-checkbox:checked + .footer-heading + .footer-list {
+                display: none;
+            }
+            
+            /* DesktopMode */
+            @media (min-width: 896px) {
+
+                .dynamicHeader [main-title] {
+                    height: 72px;
+                    font-size: 30px;
+                }
+                app-header.dynamicHeader {
+                    height: 112px;
+                }
+                .footer-checkbox {
+                    display: none;
+                }
+                .footer-checkbox + .mdl-mega-footer--heading:after {
+                    background-image: none;
+                }
+                .footer-checkbox:checked ~ .footer-list,
+                .footer-checkbox:checked + .footer-heading + .footer-list {
+                    display: block;
+                }
+                .footer-checkbox:checked + .footer-heading:after {
+                    content: '';
+                }
+                :host {
+                    --app-grid-columns: 3;
+                    --app-grid-expandible-item-columns: 3;
+                }
+            }
+        </style>
+
+        <iron-media-query query="(min-width: 896px)" query-matches="{{desktopMode}}"></iron-media-query>
+
+        <app-location route="{{route}}"></app-location>
+        <app-route route="{{route}}" pattern="/:page" data="{{routeData}}" tail="{{subRoute}}"></app-route>
+        <app-route route="{{subRoute}}" pattern="/:subpage" data="{{subRouteData}}" tail="{{subRouteTail}}"></app-route>
+
+        <app-drawer-layout fullbleed force-narrow>
+            <!-- Drawer content, Drop down MENY, top left corner -->
+            <app-drawer id="drawer" swipe-open>
+                <div style="height: 100%; overflow: auto;">
+                    <app-toolbar>
+                        <paper-icon-button on-tap="toggleDrawer" icon="custom-icons:menu" paper-drawer-toggle></paper-icon-button>
+                        Menu
+                    </app-toolbar>
+                    <iron-selector selected="[[selectedMenuItem]]" attr-for-selected="name" class="drawer-list" role="navigation">
+                        <a href="/" name="home">
+                            <iron-icon icon="custom-icons:home"></iron-icon>
+                            Naturguiden
+                        </a>
+
+                        <a href="/adventures/main" name="adventures">
+                            <iron-icon icon="custom-icons:pets"></iron-icon>
+                            Upplevelser
+                        </a>
+
+                        <a href="/info/about-tours" name="about-tours">
+                            <iron-icon icon="custom-icons:info"></iron-icon>
+                            Weekendturer
+                        </a>
+
+                        <a href="/about/about-us" name="about-us">
+                            <iron-icon icon="custom-icons:naturguiden"></iron-icon>
+                            Om oss
+                        </a>
+
+                        <div class="divider"></div>
+
+                        <div class="subheader">
+                            Our adventuresAA
+                        </div>
+
+                        <a href="/adventures/skating-weekend" name="skating">Nordic Skating</a>
+                        <!--<a href="/adventures/skiing" name="skiing">Skiing</a>-->
+                        <a href="/adventures/kayak-weekend" name="kayak">Kayaking</a>
+                        <a href="/adventures/hiking-eightdays" name="hiking">Hiking</a>
+
+                        <div class="divider"></div>
+
+<!--
+                        <div class="subheader">
+                            Information
+                        </div>
+
+                        <a href="/info/about-tours" name="about-tours">About our tours</a>
+                        <a href="/info/how-get-here" name="how-get-here">How to get here</a>
+                        <a href="/info/accommodation" name="accommodation">Accommundation</a>
+                        <a href="/info/about-sweden" name="about-sweden">About Sweden</a>
+
+                        <div class="divider"></div>
+
+-->
+
+                        <a href="/about/inquiry" name="inquiry">
+                            <iron-icon icon="custom-icons:event"></iron-icon>
+                            Skicka förfrågan
+                        </a>
+
+                        <a href="/about/contact" name="contact">
+                            <iron-icon icon="custom-icons:phone"></iron-icon>
+                            Kontakta oss
+                        </a>
+                    </iron-selector>
+                </div>
+            </app-drawer>
+
+            <!-- Main content Top bar MENY-->
+            <app-header-layout id="test">
+
+                <app-header id="scrollHeader" class="" condenses fixed="{{desktopMode}}" reveals="{{!desktopMode}}"
+                    effects="resize-title blend-background">
+                    <app-toolbar>
+                        <paper-icon-button icon="custom-icons:menu" on-tap="toggleDrawer"></paper-icon-button>
+                        <a href="/" condensed-title>
+                            <img alt="Naturguiden name" src="../images/name.png">
+                        </a>
+                        <a href="https://www.facebook.com/Naturguiden/">
+                            <paper-icon-button icon="128-icons:facebook"></paper-icon-button>
+                        </a>
+                        <a href="/about/contact">
+                            <paper-icon-button icon="custom-icons:phone"></paper-icon-button>
+                        </a>
+                    </app-toolbar>
+                    <a href="/" main-title bottom-item>
+                        <img alt="Naturguiden name" src="../images/name.png">
+                    </a>
+                    <template is="dom-if" if="[[desktopMode]]">
+                        <paper-tabs selected="[[page]]" attr-for-selected="name">
+                            <paper-tab name="adventures"><a href="/adventures/main">Upplevelser</a></paper-tab>
+                            <paper-tab name="info"><a href="/info/about-tours">Weekendturer</a></paper-tab>
+                            <paper-tab name="about"><a href="/about/about-us">Om oss</a></paper-tab>
+                        </paper-tabs>
+                    </template>
+                </app-header>
+                <iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="view404" role="main">
+                    <ng-home name="home" desktop="{{desktopMode}}"><paper-spinner-lite alt="Loading start page" active></paper-spinner-lite></ng-home>
+                    <ng-adventures name="adventures" desktop="{{desktopMode}}" route="{{subRoute}}"><paper-spinner-lite alt="Loading adventures page" active></paper-spinner-lite></ng-adventures>
+                    <ng-info name="info" route="{{subRoute}}"><paper-spinner-lite alt="Loading information page" active></paper-spinner-lite></ng-info>
+                    <ng-about name="about" route="{{subRoute}}"><paper-spinner-lite alt="Loading about page" active></paper-spinner-lite></ng-about>
+                    <ng-inquiry-success name="inquiry-success"><paper-spinner-lite alt="Loading success page" active></paper-spinner-lite></ng-inquiry-success>
+                    <ng-view404 name="view404"><paper-spinner-lite alt="Loading error page" active></paper-spinner-lite></ng-view404>
+                </iron-pages>
+
+                <footer>
+                    <div class="app-grid">
+                        <div class="item">
+                            <input class="footer-checkbox" type="checkbox" checked>
+                            <h3 class="footer-heading">Our adventures</h3>
+                            <ul class="list-unstyled footer-list">
+                                <li><a href="/adventures">Our tours</a></li>
+                                <li>
+                                    <a href="/adventures/skating-weekend">Skating </a>
+                                </li>
+                                <!--
+                                <li>
+                                    <a href="/adventures/skiing">Skiing </a>
+                                </li>
+                                -->
+                                <li>
+                                    <a href="/adventures/kayak-weekend">Kayak</a>
+                                </li>
+                                <li>
+                                    <a href="/adventures/hiking-eightdays">Hiking</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="item">
+                            <div>
+                                <input class="footer-checkbox" type="checkbox" checked>
+                                <h3 class="footer-heading">Information</h3>
+                                <ul class="list-unstyled footer-list">
+                                    <li>
+                                        <a href="/info/about-tours">About our tours</a>
+                                    </li>
+                                    <li>
+                                        <a href="/info/how-get-here">How to get here</a>
+                                    </li>
+                                    <li>
+                                        <a href="/info/accommodation">Accommodations</a>
+                                    </li>
+                                    <li>
+                                        <a href="/before-trip">Before the trip</a>
+                                    </li>
+                                    <li>
+                                        <a href="/info/about-sweden">About Sweden</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <input class="footer-checkbox" type="checkbox" checked>
+                            <h3 class="footer-heading">About us</h3>
+                            <ul class="list-unstyled footer-list">
+                                <li>
+                                    <a href="/about/about-us">About Naturguiden</a>
+                                </li>
+                                <li>
+                                    <a href="/about/contact">Contact us</a>
+                                </li>
+                                <li>
+                                    <a href="/about/inquiry">Send an inquiry</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="app-grid">
+                        <div class="item">
+                            <address>
+                                <strong>Naturguiden</strong><br>
+                                Munkhagsgatan 120B<br>
+                                587 25 LINKÖPING<br>
+                                SWEDEN
+                            </address>
+                        </div>
+                        <div class="item">
+                            <address>
+                                <strong>John Savelid</strong><br>
+                                <a href="mailto:info@naturguiden.se">info@naturguiden.se</a><br>
+                                <a href="tel:+46-705-353-630">+46 70 53 53 630</a>
+                            </address>
+                        </div>
+                    </div>
+                </footer>
+            </app-header-layout>
+        </app-drawer-layout>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'ng-app',
+
+            properties: {
+                page: {
+                    type: String,
+                    reflectToAttribute: true,
+                    observer: '_pageChanged'
+                },
+                subpage: {
+                    type: String,
+                    reflectToAttribute: true,
+                    observer: '_subpageChanged'
+                },
+                selectedMenuItem: {
+                    type: String,
+                    value: "home"
+                },
+                picturesSubroute: {
+                    reflectToAttribute: true,
+                }
+            },
+
+            attached: function() {
+                this._updateGridStyles = this._updateGridStyles || function() {
+                this.updateStyles();
+                }.bind(this);
+                window.addEventListener('resize', this._updateGridStyles);
+            },
+            detached: function() {
+                window.removeEventListener('resize', this._updateGridStyles);
+            },
+
+            observers: [
+                '_routePageChanged(routeData.page)',
+                '_routeSubPageChanged(subRouteData.subpage)'
+            ],
+
+            listeners: {
+                // `click` events on the host are delegated to `clickHandler`
+                'scroll-top': 'scrollToTop'
+            },
+
+            scrollToTop: function() {
+                this.$.scrollHeader.scroll(0,0)
+            },
+
+            _routePageChanged: function(page) {
+                // if(this.page == 'home') {
+                //     this.$.scrollHeader.classList.remove('dynamicHeader');
+                // }
+                // else{
+                //     this.$.scrollHeader.classList.add('dynamicHeader');
+                // }
+                this.$.scrollHeader.resetLayout();
+                this.page = page || 'home';
+                if(page != null) {
+                    this.selectedMenuItem = page || 'home';
+                }
+                if (!this.$.drawer.persistent) {
+                    this.$.drawer.close();
+                }
+                this.scrollToTop();
+            },
+
+            _routeSubPageChanged: function(subpage) {
+                if(subpage != null){
+                    this.selectedMenuItem = subpage;
+                }
+                this.scrollToTop();
+            },
+
+            _pageChanged: function(page) {
+                console.log("page chaged to " + page);
+                // Load page import on demand. Show 404 page if fails
+                var myPageToOpen = 'ng-' + page + '.html';
+
+                var resolvedPageUrl = this.resolveUrl(myPageToOpen);
+                this.importHref(resolvedPageUrl, null, this._showPage404, true);
+            },
+
+            _showPage404: function() {
+                this.page = 'view404';
+            },
+
+            toggleDrawer: function() {
+                this.$.drawer.toggle();
+            },
+        });
+  </script>
+</dom-module>

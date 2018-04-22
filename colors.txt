@@ -1,0 +1,5 @@
+cadetblue
+coral
+cornflowerblue
+crimson
+darkcyan

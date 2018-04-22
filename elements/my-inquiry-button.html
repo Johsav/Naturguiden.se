@@ -1,0 +1,30 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+
+<dom-module id="my-inquiry-button">
+    <template>
+        <style is="custom-style" include="shared-styles">
+            paper-card#news-inquery {
+                --paper-card-background-color: #00008b;
+                width: 100%;
+            }
+        </style>
+        <a href="/about/inquiry">
+            <paper-card heading="Book trip or send an inquiry" id="news-inquery" class="whiteHeading">
+            </paper-card>
+        </a>
+
+    </template>
+
+    <script>
+    Polymer({
+        is: 'my-inquiry-button',
+
+        properties: {
+
+        },
+    });
+
+    </script>
+
+</dom-module>

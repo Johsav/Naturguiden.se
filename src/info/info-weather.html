@@ -1,0 +1,244 @@
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="info-weather">
+
+    <template>
+        <style is="custom-style" include="shared-styles">
+            /* CSS rules for your element */
+        </style>
+
+        <!-- local DOM for your element -->
+
+        <paper-card class=" flow-text">
+            <iron-image preload alt="sun over ice" src="http://naturguiden.com/images/stories/ourpackage/sun_over_ice.jpg" class="left-image image-with-margin image-width-md image-height-md"
+                sizing="cover"></iron-image>
+            <div class="card-content">
+                <h1>Weather in Sweden</h1>
+                <p class="lead">What about the weather, what can we expect when coming to Sweden?</p>
+                <p>As the main thing with the holiday is the outdoor activity, the weather is important.</p>
+                <p>The weather depends of course on time of year and where in Sweden the tour takes place. We will try to
+                    give you a rough idea here so that you know what to expect.</p>
+                <p>Below we present two tables with average temperature during night and during daytime for each month. You
+                    also see the amount of rain or snow for each month (it is measured in millimetre water, when it comes
+                    as snow you will get approximately ten times more in thickness.)</p>
+                <h3>Summertime</h3>
+                <p>The temperature is an average value and measured in the shadow. In the mountain you might have down to four
+                    degrees and rain and wind even in the middle of the summer and it can be 25 degrees and clear blue sky
+                    a couple of days later. Here we are completely exposed to the weather, there is no shelter. We always
+                    recommend to bring both gloves, a cap and a swim suite when going to the mountains.</p>
+                <p>When hiking in the south of Sweden there are not that many extremes, the forest gives us shelter. On a sunny day in
+                    July we can have around 25 – 30 degrees, and on a cold and rainy day it might be around 18 degrees.</p>
+                <p>When it comes to kayak tours you are more dependent to the weather and especially to the wind. But as there are
+                    thousands of small islands along the cost you can always get some shelter. The temperature relates to
+                    the temperature of the water. The spring is colder than the autumn. Therefore late summer is the best
+                    choice for a kayak tour and even late autumn is fantastic in the archipelago. During summertime it is
+                    important to have a long arm jumper, sunglasses and a hat otherwise you might get a sunburn being out on the
+                    water the whole day.</p>
+                <h3>Wintertime</h3>
+                <p>On our winter activities you can expect temperatures between zero and minus twenty degrees. There could be
+                    snowfall and wind. On our skating tours we might even have around zero degrees and rain. And on our ski tours
+                    in the mountain during April or May there could be such warm and sunny days that you can ski with only a
+                    T-shirt. The best recommendation is to have several layers of clothes to be able to adapt to the actual
+                    temperature.
+                </p>
+                <h3>Temperature and rain / snowfall in south of Sweden</h3>
+                <table class="bordered responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Temp Night</th>
+                            <th>Temp Day</th>
+                            <th>Rain/Snow (mm)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jan</td>
+                            <td>-6</td>
+                            <td>-4</td>
+                            <td>45</td>
+                        </tr>
+                        <tr>
+                            <td>Febr</td>
+                            <td>-6</td>
+                            <td>-3</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <td>March</td>
+                            <td>-4</td>
+                            <td>2</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <td>April</td>
+                            <td>0</td>
+                            <td>9</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>May</td>
+                            <td>5</td>
+                            <td>15</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>June</td>
+                            <td>10</td>
+                            <td>20</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>July</td>
+                            <td>12</td>
+                            <td>21</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td>Aug</td>
+                            <td>11</td>
+                            <td>20</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td>Sept</td>
+                            <td>7</td>
+                            <td>15</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td>Oct</td>
+                            <td>4</td>
+                            <td>10</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Nov</td>
+                            <td>-1</td>
+                            <td>5</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Dec</td>
+                            <td>-4</td>
+                            <td>1</td>
+                            <td>40</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    Days with at least 1 mm rain/snow: 100 days a year<br /> Days with at least 10 mm rain/snow: 10 days
+                    a year
+                </p>
+                <h3>Temperature and rain / snowfall in the mountains</h3>
+                <table class="bordered responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Temp Night</th>
+                            <th>Temp Day</th>
+                            <th>Rain/Snow (mm)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jan</td>
+                            <td>-12</td>
+                            <td>-10</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Febr</td>
+                            <td>-12</td>
+                            <td>-9</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td>March</td>
+                            <td>-10</td>
+                            <td>-5</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td>April</td>
+                            <td>-6</td>
+                            <td>0</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>May</td>
+                            <td>0</td>
+                            <td>8</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>June</td>
+                            <td>4</td>
+                            <td>12</td>
+                            <td>70</td>
+                        </tr>
+                        <tr>
+                            <td>July</td>
+                            <td>6</td>
+                            <td>16</td>
+                            <td>90</td>
+                        </tr>
+                        <tr>
+                            <td>Aug</td>
+                            <td>6</td>
+                            <td>14</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Sept</td>
+                            <td>1</td>
+                            <td>8</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Oct</td>
+                            <td>-2</td>
+                            <td>2</td>
+                            <td>70</td>
+                        </tr>
+                        <tr>
+                            <td>Nov</td>
+                            <td>-9</td>
+                            <td>-2</td>
+                            <td>60</td>
+                        </tr>
+                        <tr>
+                            <td>Dec</td>
+                            <td>-13</td>
+                            <td>-8</td>
+                            <td>70</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    Days with at least 1 mm rain/snow: 150 days a year<br /> Days with at least 10 mm rain/snow: 20 days
+                    a year
+                </p>
+            </div>
+        </paper-card>
+
+    </template>
+
+    <script>
+        // element registration
+        Polymer({
+          is: "info-weather",
+
+          // add properties and methods on the element's prototype
+
+          properties: {
+            // declare properties for the element's public API
+          }
+        });
+      </script>
+
+</dom-module>

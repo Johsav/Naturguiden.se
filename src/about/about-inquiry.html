@@ -1,0 +1,192 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../bower_components/gold-email-input/gold-email-input.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-radio-button/paper-radio-button.html">
+<link rel="import" href="../../bower_components/paper-radio-group/paper-radio-group.html">
+<link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-spinner/paper-spinner-lite.html">
+<link rel="import" href="../../bower_components/vaadin-date-picker/vaadin-date-picker.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+
+<link rel="import" href="../../bower_components/app-layout/app-grid/app-grid-style.html">
+
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="about-inquiry">
+
+    <template>
+        <style is="custom-style" include="shared-styles">
+            /* CSS rules for your element 
+            
+            paper-textarea {
+                --paper-input-container-label-floating: {
+                    -webkit-transform: translateY(-100%) scale(1);
+                    transform: translateY(-100%) scale(1);
+                }
+                ;
+            }
+            */
+            vaadin-date-picker,
+            paper-input,
+            gold-email-input {
+                max-width: 500px;
+            }
+
+            paper-button{
+                float: right;
+                margin: 16px;
+            }
+            .main-btn{
+                 background-color: var(--app-primary-color);
+                 color: white;
+            }
+            paper-button > paper-spinner-lite {
+                left:0;
+                margin:0;
+                margin-right:8px;
+                --paper-spinner-color: white;
+            }
+
+        </style>
+
+        <!-- local DOM for your element -->
+        <app-location route="{{route}}"></app-location>
+
+        <paper-card class="flow-text">
+            <div class="card-content">
+                <h1>Send an inquiry</h1>
+                <p>Please use the form below to contact us about a trip you are interested in or any further questions. <br/>
+                   We look forward to hearing from you!</p>
+                    <p style="color:red; font-size: 1.7em">[[warningMessage]]<p>
+                    <form   is="iron-form"
+                            id="form"
+                            method="post"
+                            action="http://api.naturguiden.com/api/Inquiry"
+                            content-type="application/json"
+                            on-iron-form-error="_handleError"
+                            on-iron-form-response="_handleResponse"
+                            on-iron-form-submit="_handleSubmit"
+                            on-iron-form-invalid="_handleInvalid"
+                            class="app-grid">
+                        <div class="item">
+                            <vaadin-date-picker name="StartDate" label="Start Date">
+                            </vaadin-date-picker>
+                        </div>
+                        <div class="item">
+                            <vaadin-date-picker name="EndDate" label="End Date">
+                            </vaadin-date-picker>
+                        </div>
+                        <div class="item fullWidth">
+                            <paper-input type="number" label="Number of people" name="NumberOfPeople" min=1 max=99></paper-input>
+                        </div>
+                        <div  class="item">
+                            <label id="categoryLabel">Adventure</label>
+                            <paper-radio-group attr-for-selected="value" aria-labelledby="categoryLabel" allow-empty-selection>
+                                <paper-radio-button name="Category" value="skating">Skating</paper-radio-button>
+                                <paper-radio-button name="Category" value="skiing">Skiing</paper-radio-button>
+                                <paper-radio-button name="Category" value="kayak">Kayak</paper-radio-button>
+                                <paper-radio-button name="Category" value="hiking">Hiking</paper-radio-button>
+                                <paper-radio-button name="Category" value="other">Other</paper-radio-button>
+                            </paper-radio-group>
+                        </div>
+                        <div  class="item">
+                            <label id="subCategoryLabel">Package</label>
+                            <paper-radio-group attr-for-selected="value" aria-labelledby="subCategoryLabel" allow-empty-selection>
+                                <paper-radio-button name="SubCategory" value="weekend">Weekend tour</paper-radio-button>
+                                <!--<paper-radio-button name="SubCategory" value="cabin">Cabin tour</paper-radio-button>
+                                <paper-radio-button name="SubCategory" value="tent">Tent tour</paper-radio-button> -->
+                                <paper-radio-button name="SubCategory" value="yourown">Your own tour</paper-radio-button>
+                                <paper-radio-button name="SubCategory" value="other">Something else</paper-radio-button>
+                            </paper-radio-group>
+                        </div>
+                        <div class="item fullWidth">
+                            <paper-textarea label="Message" rows="8" name="Comment"></paper-textarea>
+                        </div>
+                        <h3 class="item fullWidth">Contact person</h3>
+                        <div class="item">
+                            <paper-input type="text" name="FirstName" label="First Name*" required auto-validate autocomplete error-message="A name is required"></paper-input>
+                        </div>
+                        <div class="item">
+                            <paper-input type="text" name="LastName" label="Last Name*" required auto-validate autocomplete error-message="A name is required"></paper-input>
+                        </div>
+                        <div class="item">
+                            <gold-email-input name="Email" label="Email*" required auto-validate autocomplete error-message="Email is required"></gold-email-input>
+                        </div>
+                        <div class="item">
+                            <paper-input type="phone" name="Phone" label="Phone number"></paper-input>
+                        </div>
+                        <div class="item">
+                            <paper-input type="text" name="Country" label="Country"></paper-input>
+                        </div>
+                        <paper-button on-tap="_sendForm" noink="{{sendingForm}}" disabled="{{sendingForm}}" raised="{{!sendingForm}}" class="main-btn">
+                            <paper-spinner-lite id="spinner" active="{{sendingForm}}" hidden="{{!sendingForm}}"></paper-spinner-lite>Send
+                        </paper-button>
+                        <paper-button on-tap="_clearForm" noink="{{sendingForm}}" disabled="{{sendingForm}}" raised="{{!sendingForm}}">Clear form</paper-button>
+                    </form>
+                    <form method="get" action="/inquiry-success" id="nativeForm">
+                    </form>
+            </div>
+        </paper-card>
+
+    </template>
+
+    <script>
+        // element registration
+        Polymer({
+            is: "about-inquiry",
+
+            // add properties and methods on the element's prototype
+
+            properties: {
+                // declare properties for the element's public API
+                event:{
+                    type: String,
+                    value: 'skating'
+                },
+                sendingForm:{
+                    type: Boolean,
+                    value: false
+                },
+                warningMessage:{
+                    type: String,
+                    value: ''
+                }
+            },
+
+            _sendForm: function() {
+                this.warningMessage = '';
+                this.$.form.submit();
+            },
+            _clearForm: function() {
+                this.warningMessage = '';
+                this.$.form.reset();
+            },
+
+            _handleSubmit: function() {
+                this.sendingForm = true;
+            },
+
+            _handleInvalid: function() {
+                this.fire("scroll-top");
+            },
+
+            _handleResponse: function() {
+                console.log("Response");
+                this.sendingForm = false;
+                this.$.nativeForm.submit();
+            },
+
+            _handleError: function() {
+                this.fire("scroll-top");
+                console.log("Failed to post form");
+                this.sendingForm = false;
+                this.warningMessage = 'We are sorry, for some reason posting this form failed.';
+            }
+        });
+      </script>
+
+</dom-module>

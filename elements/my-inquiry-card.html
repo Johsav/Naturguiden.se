@@ -1,0 +1,37 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+
+<dom-module id="my-inquiry-card">
+    <template>
+        <style is="custom-style" include="shared-styles">
+
+        </style>
+
+        <paper-card class="flow-text">
+            <div class="card-content">
+                <h2>Send an inquiry</h2>
+                <p class="lead">If you would like to know more, get a price or ask questions feel free to contact us, or fill out
+                the form</p>
+                <P><a href="mailto:info@naturguiden.se">info(@)naturguiden.se</a><br /> +46 70 53 53 630</P>
+            </div>
+            <div class="card-actions">
+                <a href="/about/inquiry">
+                    <paper-button>Go to the inquiry form</paper-button>
+                </a>
+            </div>
+        </paper-card>
+
+    </template>
+
+    <script>
+    Polymer({
+        is: 'my-inquiry-card',
+
+        properties: {
+
+        },
+    });
+
+    </script>
+
+</dom-module>

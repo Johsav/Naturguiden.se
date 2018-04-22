@@ -1,0 +1,259 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../elements/my-left-image-paper-card.html">
+<link rel="import" href="../../elements/my-package-info.html">
+<link rel="import" href="../../elements/my-inquiry-button.html">
+<link rel="import" href="../../elements/my-inquiry-card.html">
+<link rel="import" href="../../elements/materialize-slider-hiking.html">
+
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="hiking-yourown">
+
+    <template>
+        <style is="custom-style" include="iron-flex iron-flex-alignment shared-styles">
+            /* CSS rules for your element */
+        </style>
+
+        <!-- local DOM for your element -->
+
+        <div class="layout horizontal layout-start pageWidth pageMargin">
+            <div>
+                <template is="dom-if" if="{{desktop}}">
+                    <materialize-slider-hiking desktop>
+                        <paper-spinner-lite alt="Loading slider" active></paper-spinner-lite>
+                    </materialize-slider-hiking>
+                </template>
+
+                <paper-card class="flow-text">
+                    <div class="card-content">
+
+                        <h1>Your own hiking tour in the mountains of Sweden</h1>
+                        <p class="lead">Hiking the Swedish mountains your own way. Sleep in tents or in the mountain lodges. Walk on the
+                            path or find your own way betweens the mountains. Decide your exact route before or take one
+                            day at a time, decide where to go when you walk. The choices are yours, we help you make it
+                            happen. Taking care of all preparations and with our good knowledge of the region help you find
+                            the best options. Totally free to experience the wild in your way.</p>
+                        <div class="high-light">
+                            <p></p>But we will probably do a summit hike to Helags. Number three among the World's best summit
+                            hikes according to
+                            <a href="https://www.nationalgeographic.com/adventure/lists/hiking-backpacking/worlds-best-summit-hikes/#/helagsfjallet-mountain-sweden_91186_600x450.jpg">
+                                National Geographic</a>
+                            <i>"Sweden's highest peak south of the Arctic Circle, Helagsfjället, also simply called Helags,
+                                stands out above the surrounding peaks of the Scandinavian Mountains right on the Norway
+                                border."
+                            </i>
+                            </p>
+                            <p>On Helags there is also a glacier that we will visit and maybe we will visit the mountain Sylarna
+                                as well</p>
+                            <p>Another highlight is the arctic fox in the area. They are very rare, but with hard work from
+                                some enthusiasts that have brought out food to them for many years, they are now slowly coming
+                                back.
+                                <a href="https://www.rewildingeurope.com/news/arctic-fox-safaris-in-sweden-helps-the-arctic-fox-while-making-business-sense/">Read more about the arctic fox project in the region</a>
+                            </p>
+                        </div>
+                        <p>While hiking in the Swedish mountains we stay above tree level, the area where no trees can grow.
+                            It is still green with grass and flowers. We are exposed to the force of nature with only tents
+                            for shelter during the nights that never get dark. Or we can chose to stay some nights in the
+                            mountain lodges. We wash ourselves outdoors in the cold and crystal clear water of the rivers
+                            or we take a nice shower in the lodge. We prepare lunch close to a small river or eat in the
+                            mountain lodge. A tour just by yourself, or a tour meeting other hikers now and then.</p>
+                        <p>The tour normally starts in Ljungdalen, the south port to the Jämtland mountains.</p>
+
+                        <P>Below you have all information you need, but if you still have some more questions, don't hesitate
+                            to contact us on info@naturguiden.se or on +46 70 53 53 630.</P>
+
+                        <div class="high-light">
+                            <h2>Book your own hiking tour</h2>
+                            <h4>Price: from 425 EUR (4 days/3 nights)</h4>
+                            <p>Everything included, accommodation in tent, normally two persons / tent - But you need to bring
+                                sleepingbag and camping mattress, or rent them for 30 EUR</p>
+                            <h2>More days or other accomodation</h2>
+                            <p>If you like to stay longer than 4 days or sleep one or more nights in a mountain lodge contact
+                                us for price details and more information.</p>
+                        </div>
+
+                        <h3>A normal day in the mountains</h3>
+                        <p>We start with preparing breakfast on the camping stove. Water we get from the crystal clear creek
+                            nearby. Then we put down our tents and start our journey. When we walk over a creek we take a
+                            short stop to drink. Now and then we take a short break. Around lunch time we take a longer break
+                            close to a river or creek, preparing lunch on our camping stove.</p>
+                        <p>In the evening we find a nice place for our tents. Making diner over open fire or on the camping
+                            stove and wash ourself in the river or in a lake (yes, it is probably very cold). We will probably
+                            meet reindeer and lemmings, a lot of different birds, and we will try to g spot the
+                            arctic fox in the area.</p>
+
+                        <p>Some of the days we stay two nights at the same place and from there start a summit hike to some of the
+                            peaks, e.g. Helags. We will also try to catch fish in the small lakes and fry them over open fire.
+                        </p>
+
+                        <h3>Meeting point</h3>
+                        <p>Normally we start our tours in Ljungdalen. A small village up in the mountains. South of Åre and
+                            close to the Norwegian border.</p>
+
+                        <h3>Get here</h3>
+                        <p>You can get in several different ways. We will help you with more details when we know from where
+                            you will travel. But briefly, you can fly to Östersund and take the bus to Ljungdalen. You can
+                            take the train from Stockholm to Brunflo (via Sundsvall). Here you change to the bus. It is also
+                            possible to fly to Röros (in Norway) and take a transfer to Funäsdalen or a rental car to Ljungdalen.
+                            And you may also take a direct bus (Härjedalingen) from Stockholm to Funäsdalen. If you end up
+                            in Funäsdalen we can arrange with a transport the last part up to Ljungdalen (45 minutes).</p>
+
+                        <h3>Time:</h3>
+                        <p>We meet you when you arrive to Ljungdalen</p>
+                        <p>Last day: We find the most convenient way for you to go back.</p>
+
+                        <h3>Accommodation: Tents or in a mountain Lodge</h3>
+                        <P>You will sleep in tent close to the creek or the lake. Normally two persons in each tent.
+                            <br /> You need to bring a sleeping bag and camping mattress, or rent them for 30 EUR.
+                            <br /> Or you can choose to stay one or more nights at the mountain lodge, normally in shared rooms with
+                            others.
+                        </P>
+
+                        <h3>Personal equipment</h3>
+                        <p>Hiking boots, water resistant and suitable clothes, backpack for hiking, sleeping bag, sleeping pad,
+                            cap and gloves, sandals to wear when crossing the rivers. </p>
+                        <P>
+                            <b>Good to have but not necessary:</b> Hat for the sun, rain or mosquitos, swimwear, dry bag for
+                            your mobile/camera, sun glasses.</p>
+
+                        <h3>Equipment included</h3>
+                        <p>Tents, camping stove, maps.</p>
+                        <p>Aside from your own equipment, you also need to carry your share of food and tent or camping stove</p>
+
+                        <h3>Included in the price</h3>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td item-width="100">Day I </td>
+                                        <td>Dinner, accommodation at Ljungdalen hostel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Full days </td>
+                                        <td>Breakfast, lunch, dinner, guide, rent of equipment</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last day</td>
+                                        <td>Breakfast</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h3>
+                            <div class="not">Not included</div>
+                        </h3>
+                        <P>Alcoholic drinks</P>
+
+
+                        <h2>Program: How a trip can look like</h2>
+
+                        <div class="table-responsive">
+                            <table class="table table-hover table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td item-width="100">Day I </td>
+                                        <td>Travel to Ljungdalen, accommodation at Ljungdalen Hostel.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Day II - nn </td>
+                                        <td>Hiking in the mountain, visit the highest summits, walking on the glaciers, crossing
+                                            the rivers</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last hiking day</td>
+                                        <td>Hiking back to Ljungdalen. Accommodation at Ljungdalen hostel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last day </td>
+                                        <td>A day in Ljungdalen, 15:00 transfer back to Östersund/Stockholm</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>Day I</h3>
+                        <p>Travel to Ljungdalen. </p>
+                        <p>Accommodation in Ljungdalen hostel. Dinner and briefing about the tour. Then time for all preparation
+                            and sharing food and other equipment among us.</p>
+                        <p>Clothes and other belongings not needed on the hike can be left here until you get back.</p>
+
+                        <h3>Day II</h3>
+                        <p>Breakfast at the hostel and then we head off. First through the village and then up into the forest.
+                            We follow the old pilgrim path toward Trondheim in Norway. After 4 km we get up above the tree
+                            level, here you get the first sight of Helags</p>
+                        <p>A little further and then it's time for our first lunch break. With a great view over the lake below
+                            and the sound from the creek we start cooking. Later in the afternoon we have passed our first
+                            mountains and now we have Helags in front of us. We find a nice spots close to some water where
+                            we put up our tents. We do some cooking and start doing the plan for tomorrow.</p>
+
+                        <h3>Days on the mountains</h3>
+                        <p>The high peaks of Sylarna and Helags are in front of us but how should we climb them? What is the
+                            weather forecast? How far should we walk today? Is there any reindeer down in the valley to see?
+                            We head on taking one day at a time, stop and drink the crystal clear water from a stream,
+                            stretch out in the sun during lunch and take a bath in cold water in the river in the evening.
+                            Maybe we decide to walk the whole night, in July it never gets dark.</p>
+
+                        <p>These are magnificent but hard days. High mountains to climb, fantastic views to see and natural
+                            peacefulness without any other people.</p>
+
+                        <h3>Last hiking day</h3>
+                        <p>The last stage is going down towards Ljungdalen– an easy path where long parts are downhill. The
+                            hiking starts right after breakfast and after lunchtime we reach Ljungdalen. Now it is time to
+                            get a real shower at the hostel, or maybe a sauna. In the evening we get dinner at the local
+                            restaurant.
+                        </p>
+
+                        <h3>Last day</h3>
+                        <p>Last day, time to relax and to see more of Ljungdalen. Visit the old "Gammelgården" were you can
+                            get waffle with cloudberry jam. Or "Hemslöjden" where you can see or buy handicraft made by people
+                            in the village.</p>
+                        <p>The bus will bring you back towards Östersund/Stockholm around 15:00</p>
+
+                    </div>
+                </paper-card>
+                <my-inquiry-card></my-inquiry-card>
+            </div>
+            <div class="packageWidthPlaceholder"></div>
+            <div class="packageWidth">
+
+                <my-package-info header="Hiking" subheader="8 days" season="July - September" price="From €625" days="8 days/ 7 nights" lodging="Tent on the mountain"
+                    link="/adventures/hiking-eightdays" desktop="{{desktop}}">
+                    <div class="card-content">
+                        Eight days of hiking in the Swedish mountains. One of the best hikes in the world acording to National Geographic.
+                    </div>
+                </my-package-info>
+                <my-package-info header="Hiking" subheader="private tour" season="July - September" price="From €425" days="4 days/ 3 nights"
+                    lodging="Tent" link="/adventures/hiking-yourown" desktop="{{desktop}}" active>
+                    <div class="card-content">
+                        Book your own hiking tour with friends or family. Come any day and stay as long as you want.
+                    </div>
+                </my-package-info>
+                <my-inquiry-button hidden="{{!desktop}}"></my-inquiry-button>
+
+            </div>
+        </div>
+        <template is="dom-if" if="{{!desktop}}">
+            <div class="layout horizontal layout-start pageWidth pageMargin">
+                <paper-card>
+                    <materialize-slider-hiking desktop>
+                        <paper-spinner-lite alt="Loading slider" active></paper-spinner-lite>
+                    </materialize-slider-hiking>
+                </paper-card>
+            </div>
+        </template>
+    </template>
+
+    <script>
+        // element registration
+        Polymer({
+            is: "hiking-yourown",
+            properties: {
+            }
+        });
+    </script>
+</dom-module>

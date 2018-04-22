@@ -1,0 +1,146 @@
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../elements/my-news-container.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="ng-info">
+
+    <template>
+        <style is="custom-style" include="shared-styles">
+            /* CSS rules for your element */
+            .hide-on-768 {
+                display: inline;
+            }
+            .show-on-768 {
+                display: none;
+            }
+            @media(min-width: 768px) {
+                .hide-on-768 {
+                    display: none;
+                }
+                .show-on-768 {
+                    display: inline;
+                }
+            }
+        </style>
+
+        <!-- local DOM for your element -->
+
+        <app-route route="{{route}}" pattern="/:action" data="{{actionData}}" tail="{{tail}}"></app-route>
+        <div class="submenu pageWidth">
+            <paper-card>
+                <iron-selector id="selector" selected="[[actionData.action]]" attr-for-selected="name">
+                    <a href="/info/about-tours" name="about-tours">
+                        <div class="flow-text">
+                            <span class="show-on-768">About our tours</span>
+                            <span class="hide-on-768">Tours</span>
+                        </div>
+                    </a>
+                    <a href="/info/how-get-here" name="how-get-here">
+                        <div class="flow-text">
+                            <span class="show-on-768">How to get here</span>
+                            <span class="hide-on-768">Arrive</span>
+                        </div>
+                    </a>
+                    <a href="/info/accommodation" name="accommodation">
+                        <div class="flow-text">
+                            <span class="show-on-768">Accommodation</span>
+                            <span class="hide-on-768">Housing</span>
+                        </div>
+                    </a>
+                    <a href="/info/about-sweden" name="about-sweden">
+                        <div class="flow-text">
+                            <span class="show-on-768">About Sweden</span>
+                            <span class="hide-on-768">Sweden</span>
+                        </div>
+                    </a>
+                </iron-selector>
+            </paper-card>
+        </div>
+
+        <my-news-container>
+            <iron-pages selected="[[actionData.action]]" attr-for-selected="action" fallback-selection="error" role="main">
+                <ng-view404 action="error"><paper-spinner-lite alt="Loading error page" active></paper-spinner-lite></ng-view404>
+                <info-about-tours action="about-tours"><paper-spinner-lite alt="Loading about-tours page" active></paper-spinner-lite></info-about-tours>
+                <info-how-get-here action="how-get-here"><paper-spinner-lite alt="Loading how-get-here page" active></paper-spinner-lite></info-how-get-here>
+                <info-accommodation action="accommodation"><paper-spinner-lite alt="Loading accommodation page" active></paper-spinner-lite></info-accommodation>
+                <div action="about-sweden">
+                    <info-about-sweden><paper-spinner-lite alt="Loading about-sweden page" active></paper-spinner-lite></info-about-sweden>
+                    <info-weather><paper-spinner-lite alt="Loading weather page" active></paper-spinner-lite></info-weather>
+                </div>
+                <div action="weather">
+                    <info-weather><paper-spinner-lite alt="Loading weather page" active></paper-spinner-lite></info-weather>
+                    <info-about-sweden><paper-spinner-lite alt="Loading about-sweden page" active></paper-spinner-lite></info-about-sweden>
+                </div>
+            </iron-pages>
+        </my-news-container>
+
+    </template>
+
+    <script>
+        // element registration
+        Polymer({
+          is: "ng-info",
+
+          // add properties and methods on the element's prototype
+          attached: function() {
+              this._routePageChanged(this.actionData.action);
+          },
+
+            properties: {
+                action: {
+                    type: String,
+                    reflectToAttribute: true,
+                    value: "error",
+                    observer: '_pageChanged',
+                },
+            },
+
+            observers: [
+                '_routePageChanged(actionData.action)',
+            ],
+
+            _routePageChanged: function(route) {
+                if(route == null) {
+                    route = "";
+                }
+                this.action = route;
+            },
+
+            _pageChanged: function(action) {
+                console.log("page chaged to " + action);
+                // Load page import on demand. Show 404 page if fails
+                switch(action.toLowerCase()) {
+                    case "about-tours":
+                        var resolvedPageUrl = this.resolveUrl('info/info-about-tours.html');
+                        this.importHref(resolvedPageUrl, null, this._showPage404, true);
+                        break
+                    case "accommodation":
+                        var resolvedPageUrl = this.resolveUrl('info/info-accommodation.html');
+                        this.importHref(resolvedPageUrl, null, this._showPage404, true);
+                        break;
+                    case "how-get-here":
+                        var resolvedPageUrl = this.resolveUrl('info/info-how-get-here.html');
+                        this.importHref(resolvedPageUrl, null, this._showPage404, true);
+                        break;
+                    case "about-sweden":
+                    case "weather":
+                        var resolvedPageUrl = this.resolveUrl('info/info-about-sweden.html');
+                        this.importHref(resolvedPageUrl, null, this._showPage404, true);
+                        var resolvedPageUrl = this.resolveUrl('info/info-weather.html');
+                        this.importHref(resolvedPageUrl, null, this._showPage404, true);
+                        break;
+                    default:
+                        var resolvedPageUrl = this.resolveUrl('ng-view404.html');
+                        this.importHref(resolvedPageUrl, null, this._showPage404, true);
+                }
+            },
+
+            _showPage404: function() {
+                this.action = 'error';
+            }
+        });
+      </script>
+
+</dom-module>

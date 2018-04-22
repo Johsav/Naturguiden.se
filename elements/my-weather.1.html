@@ -1,0 +1,67 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+
+<script type="text/javascript" src="//widget.vackertvader.se/widgetv3/widget_request/2694549?bgcolor=ffffff&border=none&days=3&key=-CiAQ&lang=&maxtemp=yes&size=x215&textcolor=363636&unit=C&wind=no" charset="utf-8"></script>
+
+<dom-module id="my-weather">
+    <template>
+<<<<<<< HEAD
+        <style is="custom-style" include="shared-styles">
+            paper-card{
+                background: transparent;
+            }
+            .card-content h4 {
+                margin: -14px 0 -14px -10px;
+                font-weight: 400;
+                color: black;
+            }
+            
+            img {
+                width: 64px;
+                vertical-align: middle;
+            }
+        </style>
+
+        <iron-ajax auto url="http://api.openweathermap.org/data/2.5/group?id=8131853,2685750&units=metric&appid=619c45ce108a2074d23a044f1e297362"
+            handle-as="json" last-response="{{ajaxForecastResponse}}" timeout="10000" id="ajaxForecast">
+        </iron-ajax>
+        <template is="dom-if" if="[[ajaxForecastResponse]]">
+            <paper-card>
+                <div class="card-content">
+                    <h3>
+                    <img src="http://openweathermap.org/img/w/[[ajaxForecastResponse.list.0.weather.0.icon]].png" />
+                    [[ajaxForecastResponse.list.0.main.temp]]°C in Linköping
+                    </h3>
+                    <h3>
+                    <img src="http://openweathermap.org/img/w/[[ajaxForecastResponse.list.1.weather.0.icon]].png" />
+                    [[ajaxForecastResponse.list.1.main.temp]]°C in Östersund
+                    </h3>
+                </div>
+            </paper-card>
+        </template>
+
+=======
+        <div id='wrapper-CiAQ'>
+            <span id='h2-CiAQ'><a id='url-CiAQ' href="http://www.vackertvader.se/ljungdalen">Vädret i Ljungdalen</a></span>
+            <div id='load-CiAQ'></div>
+            <a id='url_detail-CiAQ' href="http://www.vackertvader.se/ljungdalen">Detaljerad väderprognos</a>
+        </div>
+>>>>>>> 8e080e7bc38ed3933a4f9d85b8bc5995fcb30aba
+    </template>
+
+<!--<script type="text/javascript" src="www.yr.no/sted/Norge/Akershus/Bærum/Skui/ekstern_boks_stripe.js"> </script>-->
+
+
+    <script>
+    Polymer({
+        is: 'my-weather',
+
+        properties: {
+
+        },
+    });
+
+    </script>
+
+</dom-module>

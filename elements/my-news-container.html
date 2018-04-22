@@ -1,0 +1,63 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="my-inquiry-button.html">
+<link rel="import" href="my-news.html">
+
+<link rel="import" href="../src/shared-styles.html">
+
+<dom-module id="my-news-container">
+    <template>
+        <style include="iron-flex iron-flex-alignment shared-styles">
+            .menuWidth {
+                display: none;
+            }
+            .fullWidth {
+                width: 100%;
+            }
+            @media (min-width: 1400px){
+                .menuWidth {
+                    display: block;
+                }
+            }
+        </style>
+
+        <div class$="layout horizontal layout-start pageMargin [[pageWidth]]">
+            <div class="menuWidth">
+
+                <my-news></my-news>
+
+            </div>
+            <div class="fullWidth">
+                <content></content>
+
+            </div>
+        </div>
+
+    </template>
+
+    <script>
+    Polymer({
+        is: 'my-news-container',
+
+        properties: {
+            noMaxWidth:{
+                type: Boolean,
+                value: false,
+                reflectToAttribute: true
+            },
+            pageWidth:{
+                type: String,
+                computed: 'computedPageWidth(noMaxWidth)'
+            }
+        },
+        computedPageWidth: function(noMaxWidth) {
+            return noMaxWidth ? '' : 'pageWidth';
+        }
+    });
+
+    </script>
+
+</dom-module>
+
+
+

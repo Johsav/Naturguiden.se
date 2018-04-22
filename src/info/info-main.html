@@ -1,0 +1,73 @@
+<link rel="import" href="../../elements/my-left-image-paper-card.html">
+
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="info-main">
+
+    <template>
+        <style is="custom-style" include="shared-styles">
+            /* CSS rules for your element */
+        </style>
+
+        <!-- local DOM for your element -->
+
+            <a href="/info/about-tours">
+                <my-left-image-paper-card image="/images/500/skating001.jpg">
+                    <div class="card-content">
+                        <h1>About our tours</h1>
+                        <p>Naturguiden specializes in nature tourism and offers guided adventures in the provinces of Östergötland
+                            and Jämtland. We offer our customers all inclusive adventure-packages with an experienced guide,
+                            transfer, food and accommodation.</p>
+                        <p>Naturguiden offers adventures all year around. We have found the most beautiful places for you, we
+                            provide you with information about the area, nature-related and practical outdoor knowledge.
+                            Our local knowledge makes the trip secure, comfortable and more memorable. With our network we
+                            can offer you activities and experiences you can never achieve by yourself.</p>
+                    </div>
+                </my-left-image-paper-card>
+            </a>
+            <a href="/info/how-get-here">
+                <my-left-image-paper-card image="/images/500/boat001.jpg">
+                    <div class="card-content">
+                        <h1>How to get here</h1>
+                        <p>We have adapt all our tours to make it easy for you to get here. Most of our tours starts right at
+                            the airport or the railway station. For each tour you find information about where we pick you
+                            up. We believe that most of our guests come with plain or by train, but if you come by car we
+                            describe some alternative ways to get to Sweden at the end of this document.</p>
+                    </div>
+                </my-left-image-paper-card>
+            </a>
+            <a href="/info/accommodation">
+                <my-left-image-paper-card image="/images/500/cabin_w001.jpg">
+                    <div class="card-content">
+                        <h1>Accommodation</h1>
+                        <p>We offer several different levels of accommodations, not all is avaible on all tours On some tours
+                            you can choose between differnt levels, on others you can not. Here you will get an idea about
+                            what the different levels stands for.</p>
+                    </div>
+                </my-left-image-paper-card>
+            </a>
+            <a href="/info/about-sweden">
+                <my-left-image-paper-card image="/images/500/lake002.jpg">
+                    <div class="card-content">
+                        <h1>About Sweden</h1>
+                        <p>Text</p>
+                    </div>
+                </my-left-image-paper-card>
+            </a>
+
+    </template>
+
+    <script>
+        // element registration
+        Polymer({
+          is: "info-main",
+
+          // add properties and methods on the element's prototype
+
+          properties: {
+            // declare properties for the element's public API
+          }
+        });
+      </script>
+
+</dom-module>

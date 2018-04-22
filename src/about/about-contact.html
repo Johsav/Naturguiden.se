@@ -1,0 +1,94 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="about-contact">
+
+    <template>
+        <style is="custom-style" include="shared-styles">
+            /* CSS rules for your element */
+        </style>
+
+        <!-- local DOM for your element -->
+
+        <paper-card class="flow-text">
+            <div class="card-content">
+                <h1>Contact information</h1>
+                <div class="row">
+                    <div class="col m6">
+                        <h3>Naturguiden</h3>
+                        <ul class="nothing-list">
+                            <li>Naturguiden</li>
+                            <li>Munkhagsgatan 120B</li>
+                            <li>587 25 LINKÖPING</li>
+                            <li>SWEDEN</li>
+                            <li></li>
+                            <li><a href="tel:+46-705-353-630">+46 70 53 53 630</a></li>
+                            <li><a href="mailto:info@naturguiden.se">info@naturguiden.se</a></li>
+                        </ul>
+                        
+                        <h3>Facebook</h3>
+                        <ul class="nothing-list">
+                            <li>
+                                <a href="https://www.facebook.com/Naturguiden/">https://www.facebook.com/Naturguiden/</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col m6">
+                        <h2>Agents</h2>
+                        <p>You can also contact our agent in your country and make the complete booking there.<br />
+                        <i>Note: They don't sell all our tours presented on the web</i>
+                        <h3>Nederland</h3>
+                        <ul class="nothing-list">
+                            <li>
+                                <h3>Almgrens Travel</h3>
+                            </li>
+                            <li>Skating tours</li>
+                            <li>
+                                <ul class="nothing-list">
+                                    <li>
+                                        <a href="http://www.almgrens.nl">http://www.almgrens.nl</a>
+                                    </li>
+                                    <li><a href="tel:+31 653239276">+31 653 239 276</a></li>
+                                    <li><a href="mailto:info@almgrens.nl">info@almgrens.nl</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <h3>England</h3>
+                        <ul class="nothing-list">
+                            <li>
+                                <h3>Nature Travels</h3>
+                            </li>
+                            <li>Skating tours</li>
+                            <li>
+                                <ul class="nothing-list">
+                                    <li>
+                                        <a href="http://www.naturetravels.co.uk">http://www.naturetravels.co.uk</a>
+                                    </li>
+                                    <li><a href="tel:+44 1929 463 774">+44 1929 463 774</a></li>
+                                    <li><a href="mailto:admin@naturetravels.co.uk">admin@naturetravels.co.uk</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </paper-card>
+
+    </template>
+
+    <script>
+        // element registration
+        Polymer({
+          is: "about-contact",
+
+          // add properties and methods on the element's prototype
+
+          properties: {
+            // declare properties for the element's public API
+          }
+        });
+      </script>
+
+</dom-module>

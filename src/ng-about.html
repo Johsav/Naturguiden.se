@@ -1,0 +1,123 @@
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../elements/my-news-container.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="ng-about">
+
+    <template>
+        <style is="custom-style" include="shared-styles">
+            /* CSS rules for your element */
+        </style>
+
+        <!-- local DOM for your element -->
+
+        <app-route route="{{route}}" pattern="/:action" data="{{actionData}}" tail="{{tail}}"></app-route>
+        <div class="submenu pageWidth">
+            <paper-card>
+                <iron-selector id="selector" selected="[[actionData.action]]" attr-for-selected="name">
+                    <a href="/about/about-us" name="about-us">
+                        <div class="flow-text">
+                            <span class="hide-on-small-only">About us</span>
+                            <span class="hide-on-med-and-up">About</span>
+                        </div>
+                    </a>
+                    <a href="/about/contact" name="contact">
+                        <div class="flow-text">
+                            <span class="hide-on-small-only">Contact us</span>
+                            <span class="hide-on-med-and-up">Contact</span>
+                        </div>
+                    </a>
+                    <a href="/about/inquiry" name="inquiry">
+                        <div class="flow-text">
+                            <span class="hide-on-small-only">Send an inquiry</span>
+                            <span class="hide-on-med-and-up">Booking</span>
+                        </div>
+                    </a>
+                </iron-selector>
+            </paper-card>
+        </div>
+
+        <my-news-container>
+            <iron-pages selected="[[actionData.action]]" attr-for-selected="name" fallback-selection="error" role="main">
+                <ng-view404 name="error"><paper-spinner-lite alt="Loading error page" active></paper-spinner-lite></ng-view404>
+                <div name="about-us">
+                    <about-us><paper-spinner-lite alt="Loading about-us page" active></paper-spinner-lite></about-us>
+                    <!--<about-contact><paper-spinner-lite alt="Loading contact page" active></paper-spinner-lite></about-contact>-->
+                </div>
+                <div name="contact">
+                    <about-contact><paper-spinner-lite alt="Loading contact page" active></paper-spinner-lite></about-contact>
+                </div>
+                <div name="inquiry">
+                    <about-inquiry><paper-spinner-lite alt="Loading inquiry page" active></paper-spinner-lite></about-inquiry>
+                    <!--<about-contact><paper-spinner-lite alt="Loading contact page" active></paper-spinner-lite></about-contact>-->
+                </div>
+            </iron-pages>
+        </my-news-container>
+
+    </template>
+
+    <script>
+        // element registration
+        Polymer({
+          is: "ng-about",
+
+          // add properties and methods on the element's prototype
+          attached: function() {
+              this._routePageChanged(this.actionData.action);
+          },
+
+            properties: {
+                action: {
+                    type: String,
+                    reflectToAttribute: true,
+                    value: "error",
+                    observer: '_pageChanged',
+                },
+            },
+
+            observers: [
+                '_routePageChanged(actionData.action)',
+            ],
+
+            _routePageChanged: function(route) {
+                if(route == null) {
+                    route = "";
+                }
+                this.action = route;
+            },
+
+            _pageChanged: function(action) {
+                console.log("page chaged to " + action);
+                // Load page import on demand. Show 404 page if fails
+                switch(action.toLowerCase()) {
+                    case "about-us":
+                        var resolvedPageUrl = this.resolveUrl('about/about-about-us.html');
+                        this.importHref(resolvedPageUrl, null, this._showPage404, true);
+                        var resolvedPageUrl = this.resolveUrl('about/about-contact.html');
+                        this.importHref(resolvedPageUrl, null, this._showPage404, true);
+                        break
+                    case "contact":
+                        var resolvedPageUrl = this.resolveUrl('about/about-contact.html');
+                        this.importHref(resolvedPageUrl, null, this._showPage404, true);
+                        break;
+                    case "inquiry":
+                        var resolvedPageUrl = this.resolveUrl('about/about-inquiry.html');
+                        this.importHref(resolvedPageUrl, null, this._showPage404, true);
+                        var resolvedPageUrl = this.resolveUrl('about/about-contact.html');
+                        this.importHref(resolvedPageUrl, null, this._showPage404, true);
+                        break;
+                    default:
+                        var resolvedPageUrl = this.resolveUrl('ng-view404.html');
+                        this.importHref(resolvedPageUrl, null, this._showPage404, true);
+                }
+            },
+
+            _showPage404: function() {
+                this.action = 'error';
+            }
+        });
+      </script>
+
+</dom-module>

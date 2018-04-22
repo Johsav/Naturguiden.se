@@ -1,0 +1,41 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/ng-app.html",
+  "fragments": [
+    "src/ng-home.html",
+    "src/ng-adventures.html",
+    "src/ng-info.html",
+    "src/ng-pictures.html",
+    "src/ng-about.html",
+    "src/ng-view404.html",
+    "src/ng-inquiry-success.html",
+    "src/adventures/adventures-main.html",
+    "src/adventures/hiking-eightdays.html",
+    "src/adventures/hiking-yourown.html",
+    "src/adventures/kayak-weekend.html",
+    "src/adventures/kayak-yourown.html",
+    "src/adventures/skating-weekend.html",
+    "src/adventures/skating-yourown.html",
+    "src/adventures/skiing-tent.html",
+    "src/adventures/skiing-cabin.html",
+    "src/adventures/skiing-yourown.html",
+    "src/about/about-about-us.html",
+    "src/about/about-contact.html",
+    "src/about/about-inquiry.html",
+    "src/info/info-about-sweden.html",
+    "src/info/info-about-tours.html",
+    "src/info/info-accommodation.html",
+    "src/info/info-how-get-here.html",
+    "src/info/info-weather.html"
+  ],
+    "sources": [
+    "src/**/*",
+    "images/**/*",
+    "fonts/**/*",
+    "bower.json"
+  ],
+  "extraDependencies": [
+    "manifest.json",
+    "bower_components/webcomponentsjs/webcomponents-lite.min.js"
+  ]
+}

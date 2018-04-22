@@ -1,0 +1,284 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../elements/my-left-image-paper-card.html">
+<link rel="import" href="../../elements/my-package-info.html">
+<link rel="import" href="../../elements/my-inquiry-button.html">
+<link rel="import" href="../../elements/my-inquiry-card.html">
+<link rel="import" href="../../elements/materialize-slider-hiking.html">
+
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="hiking-eightdays">
+
+    <template>
+        <style is="custom-style" include="iron-flex iron-flex-alignment shared-styles">
+            /* CSS rules for your element */
+        </style>
+
+        <!-- local DOM for your element -->
+
+        <div class="layout horizontal layout-start pageWidth pageMargin">
+            <div>
+
+                <template is="dom-if" if="{{desktop}}">
+                    <materialize-slider-hiking desktop>
+                        <paper-spinner-lite alt="Loading slider" active></paper-spinner-lite>
+                    </materialize-slider-hiking>
+                </template>
+
+                <paper-card class="flow-text">
+                    <div class="card-content">
+
+                        <h1>Eight days in the wild</h1>
+                        <p class="lead">Eight adventurous days filled with mountain peak tours, glacier hiking and magnificent nature! The
+                            details are not set, we decide from day to day how the trip will develop. We bring our own tents
+                            (which will be provided) and all the food we need. We are totally free to experience the wild,
+                            outside all regular tracks and mountain lodges.</p>
+                        <div class="high-light">
+                            <p></p>But for sure we will do a summit hike to Helags. Number three among the World's best summit
+                            hikes according to
+                            <a href="https://www.nationalgeographic.com/adventure/lists/hiking-backpacking/worlds-best-summit-hikes/#/helagsfjallet-mountain-sweden_91186_600x450.jpg">
+                                National Geographic</a>
+                            <i>"Sweden's highest peak south of the Arctic Circle, Helagsfjället, also simply called Helags,
+                                stands out above the surrounding peaks of the Scandinavian Mountains right on the Norway
+                                border."
+                            </i>
+                            </p>
+                            <p>On Helags there is also a glacier that we will visit and maybe we will visit the mountain Sylarna
+                                as well</p>
+                            <p>Another highlight is the arctic fox in the area. They are very rare, but with hard work from
+                                some enthusiasts that have brought out food to them for many years, they are now starting to
+                                come back to the area.
+                                <a href="https://www.rewildingeurope.com/news/arctic-fox-safaris-in-sweden-helps-the-arctic-fox-while-making-business-sense/">Read more about the arctic fox project in the region</a>
+                            </p>
+                        </div>
+                        <p>While hiking in the Swedish mountains we stay above tree level, the area where no trees can grow.
+                            It is still green with grass and flowers. We are exposed to the force of nature with only tents
+                            for shelter during the nights that never get dark. We wash ourselves outdoors in the cold and
+                            crystal clear water of the rivers. We prepare lunch close to a small river. Probably not meeting
+                            any other people, only the reindeer and lemmings.</p>
+                        <p>The tour starts in Ljungdalen, the south port to the Jämtland mountains.</p>
+                        <P>
+                            <I>If you come together with your friends or family and you are 4-6 persons or more consider the
+                                options for your own private tour.
+                                <a href="/adventures/hiking-yourown">Read more here..</a>
+                            </I>
+                        </P>
+
+                        <P>Below you have all information you need, but if you still have some more questions, don't hesitate
+                            to contact us on info@naturguiden.se or on +46 70 53 53 630.</P>
+
+                        <div class="high-light">
+                            <h2>Join us on our trips 2018</h2>
+                            <h4>Price: 625 EUR</h4>
+                            <p>Accommodation in tent, normally two persons / tent</br>
+
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-condensed">
+                                        <tbody class="high-light">
+                                            <tr>
+                                                <td>3 - 12 August</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p>If there is interest for other weekends do not hesitate to contact us. We will do our
+                                    best to help you.</p>
+                        </div>
+
+                        <h3>A normal day in the mountains</h3>
+                        <p>We start with preparing breakfast on the camping stove. Water we get from the crystal clear creek
+                            nearby. Then we put down our tents and start our journey. When we walk over a creek we take a
+                            short stop to drink. Now and then we take a short break. Around lunch time we take a longer break
+                            close to a river or creek, preparing lunch on our camping stove.</p>
+                        <p>In the evening we find a nice place for our tents. Making diner over open fire or on the camping
+                            stove and wash ourself in the river or in a lake (yes, it is probably very cold). We will probably
+                            meet reindeer and lemmings, a lot of different birds, and we will try to g spot the
+                            arctic fox in the area.</p>
+
+                        <p>Some of the days we stay two nights at the same place and from there start a summit hike to some of the
+                            peaks, e.g. Helags. We will also try to catch fish in the small lakes and fry them over open fire.
+                        </p>
+
+                        <h3>Meeting point</h3>
+                        <p>Normally we start our tours in Ljungdalen. A small village up in the mountains. South of Åre and
+                            close to the Norwegian border.</p>
+
+                        <h3>Get here</h3>
+                        <p>You can get here in several different ways. We will help you with more details when we know from
+                            where you will travel. More information here
+                            <a href="/info/how-get-here">How to get here>>></a>
+                        </p>
+
+                        <h3>Time:</h3>
+                        <p>We meet you when you arrive to Ljungdalen</p>
+                        <p>Last day: We find the most convenient way for you to go back.</p>
+
+                        <h3>Accommodation: Tents</h3>
+                        <P>You will sleep in a tent close to the creek or the lake. Normally two persons in each tent.
+                            <br /> You need to bring a sleeping bag and camping mattress. Or rent them for 30 EUR.
+                            <br /> We prepare the meals together over open fire or on a camping stove. All food is provided and
+                            included in the price.
+                        </P>
+
+                        <h3>Personal equipment</h3>
+                        <p>Hiking boots, water resistant and suitable clothes, backpack for hiking, sleeping bag, sleeping pad,
+                            cap and gloves, sandals to wear when crossing the rivers. </p>
+                        <P>
+                            <b>Good to have but not necessary:</b> Hat for the sun, rain or mosquitos, swimwear, dry bag for
+                            your mobile/camera, sun glasses.</p>
+
+                        <h3>Equipment included</h3>
+                        <p>Tents, camping stove, maps.</p>
+                        <p>Aside from your own equipment, you also need to carry your share of food and tent or camping stove</p>
+
+                        <h3>Included in the price</h3>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td item-width="100">Day I </td>
+                                        <td>Dinner, accommodation at Ljungdalen hostel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Day II - VII </td>
+                                        <td>Breakfast, lunch, dinner, guide, rent of equipment</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Day VIII </td>
+                                        <td>Breakfast, lunch, guide,rent of equipment, accommodation at Ljungdalen hostel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Day IX </td>
+                                        <td>Breakfast</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h3>
+                            <div class="not">Not included</div>
+                        </h3>
+                        <P>Alcoholic drinks</P>
+
+                        <h3>Choices of extras:</h3>
+                        <p>1.) Extra days</p>
+                        <p>It is possible to experience a longer hiking by extending the trip with one or more extra days. For
+                            example you can spend one extra day at Helags, visit the summit and the glacier.<br/>
+                        Price for each extra day: 50 Euro</p>
+
+                        <h3>2.) Less days</h3>
+                        <p>It is also possible to shorten the trip by one or more days.<br/>
+                        Price reduction / day: 50 Euro</p>
+
+
+                        <h2>Program: Hiking in the Swedish mountains, 8 days in the wild</h2>
+
+                        <div class="table-responsive">
+                            <table class="table table-hover table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td item-width="100">Day I </td>
+                                        <td>Travel to Ljungdalen, accommodation at Ljungdalen Hostel.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Day II - VII </td>
+                                        <td>Hiking in the mountain, visit the highest summits, walking on the glaciers, crossing
+                                            the rivers</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Day VIII </td>
+                                        <td>Hiking back to Ljungdalen. Accommodation at Ljungdalen hostel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Day IX </td>
+                                        <td>A day in Ljungdalen, 15:00 transfer back to Östersund/Stockholm</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>Day I</h3>
+                        <p>Travel to Ljungdalen. </p>
+                        <p>Accommodation in Ljungdalen hostel. Dinner and briefing about the tour. Then time for all preparation
+                            and sharing food and other equipment among us.</p>
+                        <p>Clothes and other belongings not needed on the hike can be left here until you get back.</p>
+
+                        <h3>Day II</h3>
+                        <p>Breakfast at the Hostel and then we head off. First through the village and then up into the forest.
+                            We follow the old pilgrim path toward Trondheim in Norway. After 4 km we get up above the tree
+                            level, here you get the first sight of Helags</p>
+                        <p>A little further and then it's time for our first lunch break. With a great view over the lake below
+                            and the sound from the creek we start cooking. Later in the afternoon we have passed our first
+                            mountains and now we have Helags in front of us. We find a nice spot close to some water where
+                            we put up our tents. We do some cooking and start doing the plan for tomorrow.</p>
+
+                        <h3>Day III – XIII</h3>
+                        <p>The high peaks of Sylarna and Helags are in front of us but how should we climb them? What is the
+                            weather forecast? How far should we walk today? Is there any reindeer down in the valley to see?
+                            We continue taking one day at a time, stop and drink the crystal clear water from a stream,
+                            stretch out in the sun during lunch and take a bath in cold water in the river in the evening.
+                            Maybe we decide to walk the whole night, in July it never gets dark.</p>
+
+                        <p>These are magnificent but hard days. High mountains to climb, fantastic views to enjoy and natural
+                            peacefulness without any other people.</p>
+
+                        <h3>Day VIII</h3>
+                        <p>The last stage is walking down towards Ljungdalen– an easy path where long parts are downhill. The
+                            hiking starts right after breakfast and after lunchtime we reach Ljungdalen. Now it is time to
+                            get a real shower at the hostel, or maybe a sauna. In the evening we get dinner at the local
+                            restaurant.
+                        </p>
+
+                        <h3>Day IX</h3>
+                        <p>Last day, time to relax and to see more of Ljungdalen. Visit the old "Gammelgården" were you can
+                            get waffle with cloudberry jam. Or "Hemslöjden" where you can see or buy handicraft made by people
+                            in the village.</p>
+                        <p>The bus will bring you back towards Östersund/Stockholm around 15:00</p>
+
+                    </div>
+                </paper-card>
+                <my-inquiry-card></my-inquiry-card>
+            </div>
+            <div class="packageWidthPlaceholder"></div>
+            <div class="packageWidth">
+
+                <my-package-info header="Hiking" subheader="8 days" season="July - September" price="From €625" days="8 days/ 7 nights" lodging="Tent on the mountain"
+                    active link="/adventures/hiking-eightdays" desktop="{{desktop}}">
+                    <div class="card-content">
+                        Eight days of hiking in the Swedish mountains. One of the best hikes in the world acording to National Geographic.
+                    </div>
+                </my-package-info>
+                <my-package-info header="Hiking" subheader="private tour" season="July - September" price="From €425" days="4 days/ 3 nights"
+                    lodging="Tent" link="/adventures/hiking-yourown" desktop="{{desktop}}">
+                    <div class="card-content">
+                        Book your own hiking tour with friends or family. Come any day and stay as long as you want.
+                    </div>
+                </my-package-info>
+                <my-inquiry-button hidden="{{!desktop}}"></my-inquiry-button>
+
+            </div>
+        </div>
+        <template is="dom-if" if="{{!desktop}}">
+            <div class="layout horizontal layout-start pageWidth pageMargin">
+                <paper-card>
+                    <materialize-slider-hiking desktop>
+                        <paper-spinner-lite alt="Loading slider" active></paper-spinner-lite>
+                    </materialize-slider-hiking>
+                </paper-card>
+            </div>
+        </template>
+    </template>
+
+    <script>
+        // element registration
+        Polymer({
+            is: "hiking-eightdays",
+            properties: {
+            }
+        });
+    </script>
+</dom-module>

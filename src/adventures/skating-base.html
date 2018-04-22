@@ -1,0 +1,95 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../elements/my-left-image-paper-card.html">
+<link rel="import" href="../../elements/my-package-info.html">
+<link rel="import" href="../../elements/my-inquiry-button.html">
+<link rel="import" href="../../elements/my-inquiry-card.html">
+<link rel="import" href="../../elements/materialize-slider-skating.html">
+
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="skating-base">
+
+    <template>
+        <style is="custom-style" include="iron-flex iron-flex-alignment shared-styles">
+            /* CSS rules for your element */
+        </style>
+
+        <!-- local DOM for your element <-->
+
+        <div class="layout horizontal layout-start pageWidth pageMargin">
+            <div>
+
+                <template is="dom-if" if="{{desktop}}">
+                    <materialize-slider-skating desktop>
+                        <paper-spinner-lite alt="Loading slider" active></paper-spinner-lite>
+                    </materialize-slider-skating>
+                </template>
+
+                <paper-card class="flow-text">
+                    <div class="card-content">
+                        <p class="lead center-text">
+                            We offer a weekend and a custom package for ice skating. Click the cards to the right to navigate betweeen them.
+                        </p>
+                    </div>
+                </paper-card>
+                
+                <content><paper-spinner-lite alt="Loading slider" active></paper-spinner-lite></content>
+
+                <my-inquiry-card></my-inquiry-card>
+            </div>
+            <div class="packageWidthPlaceholder"></div>
+            <div class="packageWidth">
+
+                <my-package-info header="Nordic Skating" subheader="weekend tour" season="January - mid March" price="From €645" days="4 days/ 3 nights"
+                    lodging="Hostel, double room with shared toilet and shower" active=[[isWeekend]] link="/adventures/skating-weekend" desktop="{{desktop}}">
+                    <div class="card-content">
+                        An all inclusive guided tour were we travel in small groups of max 8 persons. We pick you up at Stockholm airport / Arlanda
+                        or elsewhere after agreement.
+                    </div>
+                </my-package-info>
+                <my-package-info header="Nordic skating" subheader="private tour" season="December - March" price="From €615" days="4 days/ 3 nights"
+                    lodging="Hotel or Hostel" active={{isYourOwn}} link="/adventures/skating-yourown" desktop="{{desktop}}">
+                    <div class="card-content">
+                        Book your own skating tour with friends or family. Come any day and stay as long as you want.
+                    </div>
+                </my-package-info>
+                <my-inquiry-button hidden="{{!desktop}}"></my-inquiry-button>
+
+            </div>
+        </div>
+        <template is="dom-if" if="{{!desktop}}">
+            <div class="layout horizontal layout-start pageWidth pageMargin">
+                <paper-card>
+                    <materialize-slider-skating>
+                        <paper-spinner-lite alt="Loading slider" active></paper-spinner-lite>
+                    </materialize-slider-skating>
+                </paper-card>
+            </div>
+        </template>
+    </template>
+
+    <script>
+        // element registration
+        Polymer({
+            is: "skating-base",
+            properties: {
+                isWeekend: {
+                    type: Boolean,
+                    reflectToAttribute: true
+                },
+                isYourOwn: {
+                    type: Boolean,
+                    reflectToAttribute: true
+                },
+                desktop: {
+                    type: Boolean,
+                    reflectToAttribute: true,
+                    value: false
+                }
+            }
+        });
+    </script>
+</dom-module>

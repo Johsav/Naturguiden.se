@@ -1,0 +1,112 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../bower_components/neon-animation/animations/scale-up-animation.html">
+<link rel="import" href="../bower_components/neon-animation/animations/fade-out-animation.html">
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+
+<dom-module id="my-dialog-img">
+  <template>
+    <style>
+    paper-dialog{
+        background: white;
+        height: calc(100vh - 96px);
+        width: 100vw;
+        margin: 0;
+    }
+    paper-dialog iron-image {
+        /*
+        */
+        height: calc(100% - 32px);
+        width: calc(100%);
+        border: white solid 0px;
+        border-width: 16px 0;
+        display: block;
+        margin: 0 auto;
+        background-color: lightgray;
+    }
+    
+    @media (min-width: 896px) {
+        paper-dialog {
+            background: white;
+            height: calc(100vh - 96px);
+            width: calc(100vw - 96px);
+        }
+        paper-dialog iron-image {
+            /*
+            */
+            width: calc(100% - 48px);
+            border-width: 24px 24px;
+        }
+    }
+    </style>
+
+    <paper-dialog id="dialog" with-backdrop entry-animation="scale-up-animation" exit-animation="fade-out-animation">
+      <iron-image id="image" preload sizing="cover" loaded="{{loadedPicture}}" src="[[pictureUrl]]" style="margin: 0 auto;
+        padding: 0;"></iron-image>
+    </paper-dialog>
+
+  </template>
+</dom-module>
+
+<script>
+
+(function() {
+
+  Polymer({
+
+    is: 'my-dialog-img',
+    properties: {
+        imageUrl:{
+          type: String,
+          reflectToAttribute: true
+        },
+        loading: { 
+          type: Boolean,
+          reflectToAttribute: true,
+          notify: true
+        },
+        status: { 
+          type: String,
+          reflectToAttribute: true,
+          notify: true,
+          value: ""
+        },
+        loadedPicture: {
+          observer: '_loadedPicture'
+        }
+    },
+
+    observers: [
+      '_loadedPicture(loadedPicture, loading)'
+    ],
+
+    _loadedPicture: function(loadedPicture, loading) {
+      if(loading && loadedPicture){
+          this.loading = false;
+          if(this.$.image.error) {
+            console.log("Failed to load picture");
+            this.status = "Failed to load picture";
+          }
+          else {
+            this.status = "";
+            this.$.dialog.refit();
+            this.$.dialog.open();
+          }
+      }
+    }
+
+  });
+
+})();
+
+</script>

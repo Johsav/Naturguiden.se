@@ -1,0 +1,96 @@
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="info-about-sweden">
+
+    <template>
+        <style is="custom-style" include="shared-styles">
+            /* CSS rules for your element */
+            
+            .map {
+                position: relative;
+                margin-bottom : 0px;
+            }
+            
+            .icon {
+                position: absolute;
+                z-index: 1;
+                width: 100%;
+                top: 0px;
+                left: 0px;
+            }
+        </style>
+
+        <!-- local DOM for your element -->
+        <iron-ajax auto url="http://api.fixer.io/latest" handle-as="json" on-response="handleAjaxCurencyCallResponse" timeout="10000"
+            id="ajaxCurencyCall">
+        </iron-ajax>
+
+        <paper-card class="flow-text">
+            <div class="map image-width-lg">
+                <iron-image preload alt="Map of Sweden" src="/images/map/map.png" class="left-image image-height-auto" style="width: 100%;"></iron-image>
+                <img class="icon" src="/images/map/skating.png"/>
+                <img class="icon" src="/images/map/skiing.png"/>
+                <img class="icon" src="/images/map/hiking.png"/>
+                <img class="icon" src="/images/map/canoe.png"/>
+                <img class="icon" src="/images/map/airport.png"/>
+            </div>
+            <div class="card-content">
+                <h1>About Sweden</h1>
+                <p class="lead">Sweden has a lot to offer when it comes to outdoor sports. With over 250.000 lakes, 1.350 km of coast with
+                    more than 40.000 islands and several big rivers, we have one of the best areas in
+                    the world for skating on natural ice, awesome. Kayaking in the archipelago or on any of the lakes is also
+                    fantastic.
+                </p>
+                <p>The forest is another reason for being a great outdoor nation, over 50% is forest. Fantastic opportunities
+                    for biking, hiking, hunting, cross country skiing or going by snowmobiles or dog sledges.</p>
+                <p>Then we have the mountains, high areas without trees. Down hill skiing is almost a national sport, cross
+                    country skiing something all kids learn. Ski tours in the mountain are popular in wintertime as well as
+                    hiking tours in summertime of course. Visit the mountains in April, the fifth season. Still cold and snowy but
+                    long lasting sunny days.</p>
+                <p>Sweden is a long country, 1.570 km, and the climate changes a lot from North to South. In winter the average
+                    temperature is around 0 degrees in the South and about minus 20 - 30 degrees in the North. In summer the temperature
+                    is around 20 - 25 degrees in the South and around 10 degrees in the North. Midnight sun in summer and no sun
+                    at all during a couple of weeks around Christmas in the North. To tell what´s normal in Sweden is not possible,
+                    it´s all about where you are.</p>
+                <p>It is all about space, we have 22 persons/km² in Sweden, 10 million on 450.000 km². Compare to the Netherlands
+                    that have 410 persons/km². Together with the ”allemansrätt” that gives us the right to travel and camp
+                    anywhere (except in someone´s garden). Sweden is perfect if you are looking for freedom and peacefulness.</p>
+                <p>Our currency is still Kronor (SEK), we have not changed to Euro. The exchange rate is around [[exchangeRate]]
+                    SEK for 1 EUR. (If you divide the Swedish price with 10 you got the price in Euro approximately)</p>
+                <p>On all our tours everything you need is included (there is some exception). On some tours you not even have
+                    much opportunity to spend money. But if you want some money to be able to buy a beer or something else,
+                    you can always withdraw money on the airport. You can also use credit cards almost everywhere.</p>
+                <p>You get along well with English in Sweden, most people will understand you. With other languages it can be more difficult
+                     even though there are people knowing German, French, Spanish etc.</p>
+                <p>More information about Sweden is found on the web page of Visit Sweden <a href="https://visitsweden.com/">visitsweden.com</a></p>
+                <p>More information about what to bring and what to wear you find connected to each type of tour.</p>
+            </div>
+        </paper-card>
+
+    </template>
+
+    <script>
+        // element registration
+        Polymer({
+          is: "info-about-sweden",
+
+          // add properties and methods on the element's prototype
+
+          properties: {
+              exchangeRate:{
+                  type: String,
+                  value: "[Sorry, Can not load exchange rate]"
+              }
+            // declare properties for the element's public API
+          },
+          handleAjaxCurencyCallResponse: function(){
+              this.exchangeRate = this.$.ajaxCurencyCall.lastResponse.rates.SEK.toFixed(2);
+          }
+        });
+      </script>
+
+</dom-module>

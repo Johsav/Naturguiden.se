@@ -1,0 +1,270 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-styles/typography.html">
+
+<!-- shared styles for all views -->
+<dom-module id="shared-fonts">
+    <template>
+
+        <style>
+            html,body {font-size: 0.9em};
+
+            .lead{
+                font-size: 1.2rem;
+            }
+
+            h1 {
+                font-size: 2.1em;
+            }
+            
+            h2 {
+                font-size: 1.4em;
+            }
+            
+            h3 {
+                font-size: 1.1em;
+                margin-top: 2em;
+            }
+            
+            h4 {
+                font-size: 0.8em;
+            }
+            
+            h5 {
+                font-size: 0.6em;
+            }
+            .not {
+                color: red;
+            }
+            
+            .card-content h1,
+            .card-content h2,
+            .card-content h3,
+            .card-content h4,
+            .card-content h5 {
+                color: #343434;
+            }
+            
+            .card-content p,
+            .card-content ul,
+            .card-content table,
+            .submenu iron-selector a {
+                color: #242424;
+            }
+            
+            paper-card {
+                --paper-card-header-image-text: {
+                    color: white;
+                    text-shadow: 0 0 0.2em #000;
+                }
+                ;
+                --paper-card-header-text: {
+                    color: #242424;
+                }
+                ;
+            }
+            
+            paper-card.darkHeading {
+                --paper-card-header-image-text: {
+                    color: #242424;
+                    text-shadow: 0 0 0.2em #FFF;
+                }
+                ;
+            }
+            
+            paper-card.whiteHeading {
+                --paper-card-header-text: {
+                    color: white;
+                }
+                ;
+            }
+            
+            @media (min-width: 1400px) {
+                paper-card .header {
+                    font-size: 32px;
+                }
+            }
+            
+            .flow-text,
+            my-left-image-paper-card {
+                font-weight: 300;
+            }
+            
+            @media only screen and (min-width: 360px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 0.8rem;
+                }
+            }
+            
+            @media only screen and (min-width: 390px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 0.824rem;
+                }
+            }
+            
+            @media only screen and (min-width: 420px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 0.836rem;
+                }
+            }
+            
+            @media only screen and (min-width: 450px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 0.848rem;
+                }
+            }
+            
+            @media only screen and (min-width: 480px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 0.860rem;
+                }
+            }
+            
+            @media only screen and (min-width: 510px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 0.872rem;
+                }
+            }
+            
+            @media only screen and (min-width: 540px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 0.884rem;
+                }
+            }
+            
+            @media only screen and (min-width: 570px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 0.896rem;
+                }
+            }
+            
+            @media only screen and (min-width: 600px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 0.908rem;
+                }
+            }
+            
+            @media only screen and (min-width: 630px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 0.920rem;
+                }
+            }
+            
+            @media only screen and (min-width: 660px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 0.932rem;
+                }
+            }
+            
+            @media only screen and (min-width: 690px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 0.944rem;
+                }
+            }
+            
+            @media only screen and (min-width: 720px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 0.956rem;
+                }
+            }
+            
+            @media only screen and (min-width: 750px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 0.968rem;
+                }
+            }
+            
+            @media only screen and (min-width: 780px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 0.980rem;
+                }
+            }
+            
+            @media only screen and (min-width: 810px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 0.992rem;
+                }
+            }
+            
+            @media only screen and (min-width: 840px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 1.0rem;
+                }
+            }
+            
+            @media only screen and (min-width: 870px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 1.0rem;
+                }
+            }
+            
+            @media only screen and (min-width: 900px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 1.0rem;
+                }
+            }
+            
+            @media only screen and (min-width: 930px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 1.00rem;
+                }
+            }
+            
+            @media only screen and (min-width: 960px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 1.0rem;
+                }
+            }
+            
+            @media only screen and (max-width: 360px) {
+                .flow-text,
+                my-left-image-paper-card {
+                    font-size: 0.8rem;
+                }
+            }
+
+            table  {
+                width: 100%;
+                background-color: #eef1f3;
+            }
+            td {
+                padding: 1px 1px;
+            }
+            .table-row   {
+                float: left; /* make the divs sit next to each other like cells */
+                margin-left: 15px;
+            }
+
+        </style>
+    </template>
+</dom-module>

@@ -1,0 +1,52 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+
+<link rel="import" href="../src/shared-styles.html">
+
+<dom-module id="my-news">
+    <template>
+        <style include="shared-styles">
+            .card-content p {
+                font-size: 0.85em;
+            }
+        </style>
+
+                <div id="newsFeed">
+                    <iron-ajax auto url="http://api.naturguiden.com/api/News" handle-as="json" timeout="10000" last-response="{{ajaxResponse}}"
+                        id="ajaxRequest"></iron-ajax>
+
+                    <template is="dom-repeat" items="[[ajaxResponse]]">
+                        <template is="dom-if" if="{{isGreater(item.Position, 0)}}">
+                            <paper-card heading="[[item.Heading]]" image="[[item.Picture.BaseUrl]][[item.Picture.FormatedUrl]]" class="whiteHeading flow-text">
+                                <div class="card-content">
+                                    <p>[[item.Text]]</p>
+                                </div>
+                                <div hidden="[[!item.LinkUrl]]" class="card-actions">
+                                    <a href="[[item.LinkUrl]]">
+                                        <paper-button>[[item.LinkText]]</paper-button>
+                                    </a>
+                                </div>
+                            </paper-card>
+                        </template>
+                    </template>
+                </div>
+
+    </template>
+
+    <script>
+    Polymer({
+        is: 'my-news',
+
+        properties: {
+
+        },
+            isGreater: function(nr1, nr2) {
+            return nr1 > nr2
+        }
+    });
+
+    </script>
+
+</dom-module>

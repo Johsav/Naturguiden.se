@@ -1,0 +1,80 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../elements/my-news-container.html">
+<link rel="import" href="../../elements/my-left-image-paper-card.html">
+
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="adventures-main">
+
+    <template>
+        <style is="custom-style" include="shared-styles">
+            /* CSS rules for your element */
+        </style>
+
+        <!-- local DOM for your element -->
+
+        <my-news-container>
+
+            <a href="/adventures/skating-weekend">
+                <my-left-image-paper-card image="/images/500/skating003.jpg">
+                    <div class="card-content">
+                        <h1>Nordic skating in Sweden</h1>
+                        <p>It's great adventure, it's fun, it's skating on natural ice. Experience some amazing skating adventures in Sweden. The unspoiled countryside and the huge expanse of glossy ice – everything is here waiting for you.</p>
+                        <P>Sweden is one of the best countries for Nordic skating. The variety of lakes and the Baltic sea gives us a lot of possibilities for ice-skating. No wonder that it have become very popular among all types of people in all ages.</P>
+                        <P>You don't need to be an expert on skates to come here for skating, but you need to be able to skate on some kind of skates, for example Rollerblades or figure skates.</P>
+                        <P>We relay like to share this fantastic experience with you. Join us on our weekend tours or book your own private tour</p>
+                    </div>
+                </my-left-image-paper-card>
+            </a>
+            <!--<a href="/adventures/skiing-cabin">
+                <my-left-image-paper-card image="/images/500/skiing001.jpg">
+                    <div class="card-content">
+                        <h1>Cross country skiing</h1>
+                        <p>Cross country skiing in the Swedish mountains during the best time of the year, the fifth season:
+                            still winter, but with long lasting sunshine days. Sun factor 20 is needed.</p>
+
+                        <p>We cross the snowy mountains under a blue sky, take our breaks in dug couches of snow (***) and spend the
+                            nights in mountain lodges. Days of enjoyment, experience and fantastic views!</p>
+                    </div>
+                </my-left-image-paper-card>
+            </a> -->
+            <a href="/adventures/kayak-weekend">
+                <my-left-image-paper-card image="/images/500/kayak001.jpg">
+                    <div class="card-content">
+                        <h1>Kayak in the archipelago of Sweden</h1>
+                        <p>Join us on our Kayak tours in the beautiful archipelago of the Baltic sea. Between islands and skerries,
+                            out in the open sea and in seduced caves. There are thousands of islands, most of them unsettled.
+                            The Swedish "allemansrätt" gives us the right to camp on any one of them. At lunchtime we make
+                            a break on some island, cook a meal, maybe take a swim. In the evenings we camp on another island,
+                            make dinner over open fire and sleep in tents.</p>
+                    </div>
+                </my-left-image-paper-card>
+            </a>
+            <a href="/adventures/hiking-eightdays">
+                <my-left-image-paper-card image="/images/500/hiking007.jpg">
+                    <div class="card-content">
+                        <h1>Hiking</h1>
+                        <p>Leave the civilisation for a couple of days. Join our hiking tours in the beautiful nature of Sweden.
+                            Time for recovery and recreation, the most beautiful trails, what to eat and where to sleep -
+                            everything is arranged for you. Leave the planning to us and just enjoy.</p>
+                    </div>
+                </my-left-image-paper-card>
+            </a>
+        </my-news-container>
+
+    </template>
+
+    <script>
+        // element registration
+        Polymer({
+          is: "adventures-main",
+
+          // add properties and methods on the element's prototype
+
+          properties: {
+            // declare properties for the element's public API
+          }
+        });
+      </script>
+
+</dom-module>

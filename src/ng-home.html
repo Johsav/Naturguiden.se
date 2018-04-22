@@ -1,0 +1,99 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/google-youtube/google-youtube.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../elements/my-left-image-paper-card.html">
+<link rel="import" href="../elements/my-news-container.html">
+<link rel="import" href="../elements/my-fancy-list.html">
+<link rel="import" href="../elements/materialize-slider.html">
+
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="ng-home">
+    <template>
+        
+        <style include="shared-styles">
+
+            @media (min-width: 1800px) {
+                .floatRightOnLarge {
+                    float: right;
+                    width: calc(40% - 12px);
+                }
+
+                .notFloatRightOnLarge {
+                    width: 60%;
+                }
+            }
+
+        </style>
+
+        <materialize-slider desktop="{{desktop}}"><paper-spinner-lite alt="Loading slider" active></paper-spinner-lite></materialize-slider>
+
+        <my-news-container no-max-width>
+            
+            <my-left-image-paper-card image="../images/500/happy_w001.jpg" class="notFloatRightOnLarge flow-text">
+                <div class="card-content">
+                    <h1>Äventyr och vildmark</h1>
+                    <p>Vi älskar natur och friluftsliv, kajak, skridskor, middag vid lägerelden och mycket mer. Följ med på våra turer eller skapa ditt alldeles egna äventyr tillsammans med oss.</p>
+                    <p>Vi ordnar olika äventyrsupplevelser både sommar som vinter. Alltid ute I naturen, på naturens villkor. Allt ifrån kortare upplevelser på några timmar till weekendturer där både boende och mat ingår.</p>
+                    <h3>Ditt eget äventyr</h3>
+                    <p>Hitta ditt eget äventyr där vi skapar upplevelsen utifrån Era önskemål. Hämta inspiration från våra olika förslag, anpassa och kombinera.</p>
+                    <h3>Weekendturer</h3>
+                    <p>Följ med på någon av våra weekendturer, något som lockar många utländska gäster. Dagar med långfärdsskridskor, vi har fantastiska förutsättningar I Sverige.  Kajaktur i vår unika skärgård eller turskidor på fjället i april.  Du hittar all information på vår engelska sida <a href="https://www.naturguiden.com">www.naturguiden.com</a></p>
+                    <h3>Ekoturism</h3>
+                    <p>Självklart är vi medlem i <a href="http://www.ekoturism.org" target="_blank">Ekoturismföreningen </a> och har också paket märkta med <a href="https://naturesbestsweden.com/sv/produkt/langfardskridskor-all-inclusive/" target="_blank">Nature's Best, svensk Ekoturism.</a></p>
+                    <h3>Våra smultronställen</h3>Om du undrar vart vi finns så utgår vi från Linköping, men har ingen egen plats, utan väljer för varje tur vart vi vill vara. <a href="http://ljungdalsfjallen.se/" target="_blank">Ljungdalsfjällen</a> är också en plats där vi tillbringar mycket tid och här har vi flera olika turer. </p>
+                    <br />
+                    <h4>Du hittar all information om våra turer i menyerna ovan.</h4>
+                    <p><span class="not">Välkommen till Naturen med Naturguiden</span></p>
+                </div>
+            
+            </my-left-image-paper-card>
+
+            <paper-card class="floatRightOnLarge flow-text">
+                <div class="card-content">
+                    <p><b>Skridsko har blivit riktigt stort</b> för oss och flera stora tidningar har skrivit om dessa turer. Vi har nästa bara utländska gäster på dessa turer, men självklart har du också möjlighet att följa med.</p>
+
+                    <my-fancy-list header="The guardian 10 Feb 2018" image="../images/100/guardian004.jpg" link="https://www.theguardian.com/travel/2018/feb/10/sweden-ice-skating-holiday-lakes-touring-poetry">
+                        <p>Gliding over frozen rivers and lakes was once a popular winter pastime across northern Europe. A new wild skating tour of Sweden hopes to revive it, and revel in the sublime scenery, too</p>
+                    </my-fancy-list>
+
+                    <my-fancy-list header="Sunday Times 10 Nov 2013" image="../images/100/sundaytimes001.jpg" link="http://www.thesundaytimes.co.uk/sto/travel/Holidays/Active/article1337371.ece">
+                        <p>We had skated just over six miles when we reached the edge. The ice just stopped, and the liquid
+                            version of the Baltic Sea stretched out to the horizon. I hadn’t expected this sudden, ­unnerving
+                            divide. I hadn’t expected to be so far from land. And I hadn’t ­expected to be told that the
+                            solid surface I was standing on was only 3in thick.</p>
+                        <p>Full article <a href="../article/sunday-times-10-nov-2013.html">Sea skating in Sweden</a></p>
+                    </my-fancy-list>
+                </div>
+            </paper-card>
+
+            <paper-card class="notFloatRightOnLarge flow-text">
+                <div class="card-content">
+                    <h1>Weekendtur</h1>
+                    <p class="lead">En trevlig video från en av våra gäster.</p>
+                </div>
+                <google-youtube video-id="b5CztALMDsU" fluid chromeless rel="0" start="5" autoplay="0">
+                </google-youtube>
+            </paper-card>
+
+        </my-news-container>
+
+    </template>
+
+    <script>
+    Polymer({
+        is: 'ng-home',
+
+        properties: {
+            desktop: {
+                type: Boolean,
+                reflectToAttribute: true,
+                value: false
+            }
+        }
+    });
+
+    </script>
+
+</dom-module>

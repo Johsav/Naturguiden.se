@@ -1,0 +1,28 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+
+<dom-module id="my-weather">
+    <template>
+        <div id='wrapper-CiAQ'>
+            <span id='h2-CiAQ'><a id='url-CiAQ' href="//www.vackertvader.se/ljungdalen">Vädret i Ljungdalen</a></span>
+            <div id='load-CiAQ'></div>
+            <a id='url_detail-CiAQ' href="//www.vackertvader.se/ljungdalen">Detaljerad väderprognos</a>
+        </div>
+        <script type="text/javascript" src="//widget.vackertvader.se/widgetv3/widget_request/2694549?bgcolor=ffffff&border=none&days=3&key=-CiAQ&lang=&maxtemp=yes&size=x215&textcolor=363636&unit=C&wind=no" charset="utf-8"></script>
+
+
+    </template>
+
+    <script>
+    Polymer({
+        is: 'my-weather',
+
+        properties: {
+
+        },
+    });
+
+    </script>
+
+</dom-module>

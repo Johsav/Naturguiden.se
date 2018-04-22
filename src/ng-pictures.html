@@ -1,0 +1,195 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
+<!--
+-->
+<link rel="import" href="../bower_components/app-layout/app-grid/app-grid-style.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="ng-pictures">
+    <template>
+        <style is="custom-style" include="app-grid-style">
+            :host {
+                --app-grid-columns: 2;
+                /* 50% the width of the item is equivalent to 2:1 aspect ratio*/
+                --app-grid-item-height: 60%;
+                --app-grid-expandible-item-columns: 2;
+            }
+
+            iron-images {
+                 width: 100%; 
+                 height: 100%;
+                 background-color: lightgray;
+            }
+            
+            ul.app-grid {
+                margin: 3px 9px;
+            }
+            
+            .item {
+                background-color: inherit;
+            }
+            
+            .item div {
+                background-size: cover;
+                margin: 3px;
+            }
+
+            @media (min-width: 768px) {
+                :host {
+                    --app-grid-columns: 3;
+                }
+            }
+            @media (min-width: 1024px) {
+                :host {
+                    --app-grid-columns: 4;
+                }
+            }
+            @media (min-width: 1280px) and (max-width: 1535px) {
+                :host {
+                    --app-grid-columns: 4;
+                    --app-grid-expandible-item-columns: 1.333333;
+                }
+                .item:nth-child(7n+1) {
+                    @apply(--app-grid-expandible-item);
+                }
+                .item:nth-child(7n+2) {
+                    @apply(--app-grid-expandible-item);
+                }
+                .item:nth-child(7n+3) {
+                    @apply(--app-grid-expandible-item);
+                }
+            }
+            @media (min-width: 1536px) and (max-width: 2047px) {
+                :host {
+                    --app-grid-columns: 5;
+                    --app-grid-expandible-item-columns: 1.25;
+                }
+                
+                .item:nth-child(9n+1) {
+                    @apply(--app-grid-expandible-item);
+                }
+                .item:nth-child(9n+2) {
+                    @apply(--app-grid-expandible-item);
+                }
+                .item:nth-child(9n+3) {
+                    @apply(--app-grid-expandible-item);
+                }
+                .item:nth-child(9n+4) {
+                    @apply(--app-grid-expandible-item);
+                }
+            }
+            @media (min-width: 2048px) {
+                :host {
+                    --app-grid-columns: 6;
+                }
+            }
+            @media (min-width: 2304px) {
+                :host {
+                    --app-grid-columns: 6;
+                }
+            }
+            @media (min-width: 2560px) {
+                :host {
+                    --app-grid-columns: 7;
+                }
+            }
+        </style>
+
+        <style is="custom-style" include="shared-styles">
+
+        </style>
+
+        <app-route route="{{route}}" pattern="/:category" data="{{categoryData}}" tail="{{tail}}" id="router"></app-route>
+
+        <iron-ajax auto url="http://api.naturguiden.com/api/Picture/Album/[[categoryData.category]]" handle-as="json" timeout="10000" last-response="{{ajaxPictures}}"
+            id="ajaxRequestPictures"></iron-ajax>
+        <p hidden="[[!categoryData.category]]" style="padding-left: 16px;">
+            Only showing pictures related to
+            <b>[[categoryData.category]]</b>.
+            <a href="/pictures/">Click here</a> to see everything
+        </p>
+
+        <p hidden="[[!pictureShowStatus]]" style="padding-left: 16px;">
+            [[pictureShowStatus]]
+        </p>
+
+        <ul class="app-grid" has-aspect-ratio id="pictureGrid">
+            <template is="dom-repeat" items="[[ajaxPictures]]">
+                <li class="item">
+                    <iron-image style="border: solid transparent 3px;" src="[[item.BaseUrl]][[item.ThumbUrl]]" sizing="cover" id="[[item.Id]]" on-tap="_handleClick"></iron-image>
+                </li>
+            </template>
+        </ul>
+
+        <iron-ajax url="http://api.naturguiden.com/api/Picture/[[activeID]]" handle-as="json" timeout="10000" last-response="{{recivedLargePicture}}"
+            id="ajaxRequestPicture"></iron-ajax>
+
+    </template>
+
+    <script>
+    Polymer({
+        is: 'ng-pictures',
+
+        properties: {
+            largePictureUrl:{
+                type: String,
+                reflectToAttribute: true,
+                notify: true,
+            },
+            activeID:{
+                type: String,
+            },
+            pictureWaitingToOpen:{
+                type: Boolean,
+                notify: true,
+                reflectToAttribute: true,
+                value: false
+            },
+            pictureShowStatus:{
+                type: String,
+                reflectToAttribute: true,
+                value: ""
+            },
+            recivedLargePicture: {
+                observer: '_recivedLargePicture',
+            }
+        },
+
+        //observers: [
+        //    '_printPictureGrid(ajaxPictures)'
+        //],
+
+        //Handle grid on window-resize
+        attached: function() {
+            this._updateGridStyles = this._updateGridStyles || function() {
+            this.updateStyles();
+            }.bind(this);
+            window.addEventListener('resize', this._updateGridStyles);
+        },
+        detached: function() {
+            window.removeEventListener('resize', this._updateGridStyles);
+        },
+
+        _printPictureGrid: function(pictures) {
+            this.$.pictureGrid.InnerHTML = 'Hej!!';
+            console.log(this.$.pictureGrid.InnerHTML);
+        },
+
+        //Handle clicks on pictures
+        _handleClick: function(e, detail) {
+            this.activeID = e.target.id;
+            this.$.ajaxRequestPicture.generateRequest();
+        },
+
+        _recivedLargePicture: function(data){
+            if(!this.pictureWaitingToOpen){
+                this.largePictureUrl = data.BaseUrl + data.FormatedUrl;
+                this.pictureWaitingToOpen = true;
+            }
+        }
+    });
+    </script>
+
+</dom-module>
