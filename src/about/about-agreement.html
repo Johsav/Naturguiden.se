@@ -1,0 +1,60 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="about-agreement">
+
+    <template>
+        <style is="custom-style" include="shared-styles">
+            /* CSS rules for your element */
+        </style>
+
+        <!-- local DOM for your element -->
+
+        <paper-card class="flow-text">
+            <iron-image preload src="http://www.naturguiden.com/images/stories/Logo_RGB.jpg" alt="Naturguiden logo" class="left-image image-width-md image-height-md"
+                sizing="contain"></iron-image>
+            <div class="card-content dont-wrap-image">
+                <h1>Naturguiden - Bokningsregler</h1>
+
+                <h4>1). Definitioner</h4>
+                <p>Här avses med beställare den person, juridisk eller fysisk, som är betalningsskyldig för arrangemanget. Ett arrangemang föreligger då detta innehåller aktivitet, konferenslokaler, boende, förtäring eller resor.
+                Beställningen skall skriftligen bekräftas av Naturguiden. Om inte särskilda bestämmelser avtalas gäller dessa regler som bör bifogas bekräftelsen.</p>
+
+                <h4>2). Uppgifter från beställaren</h4>
+                <p>Uppgiftsdag 1. Senast fyra (4) veckor före aktiviteten skall beställaren lämna Naturguiden uppgifter om antalet deltagare samt erforderliga hotell- och konferensutrymmen. Om beställaren vill ha specialarrangemang under aktiviteten bör överenskommelse härom träffas senast fyra veckor före aktivitetens början. Om särskilda skäl föreligger har Naturguiden rätt att begära uppgifterna tidigare.
+                Uppgiftsdag 2. Senast två veckor före aktivitetens början skall beställaren lämna Naturguiden – för konferens med logi – namnlista över deltagarna med önskemål om rumsfördelning. Vid aktiviteter som innehåller förtäring bör beställaren delge Naturguiden eventuell specialkost motsvarande.</p>
+
+                <h4>3). Avbeställning</h4>
+                <p>a). Vid avbeställning senare än 4 veckor före konferensen (uppgiftsdag 1) skall beställaren ersätta Naturguiden med 75% av det avtalade priset för hel- halvpension, konferenslokaler, måltider, resor och aktiviteter. Allt i den mån lokalerna/aktiviteterna ej kunnat återsäljas.
+                b). Vid avbeställning senare än 2 veckor före aktiviteten (uppgiftsdag 2) skall beställaren till fullo ersätta Naturguiden det avtalade priset, allt dock i den mån aktiviteten inte kunnat återsäljas. Om Naturguiden haft särskilda kostnader till följd av beställningen skall dessa ersättas till fullo av beställaren.</p>
+                
+                <h4>4). Betalning</h4>
+                <p>Beställaren är ansvarig för samtliga enligt beställningen uppkomna kostnader. Om deltagarna i aktiviteten skall betala något var för sig bör beställaren informera deltagarna härom, t.ex. på inbjudningskort eller kallelser. Uteblir deltagare från beställd aktivitet medför detta ej rätt till nedsättning av priset. Betalning skall erläggas kontant om ej annat avtalats. Har avtal träffats om betalning mot faktura skall beställaren erlägga full likvid senast 15 dagar från fakturadatum. Om betalningsfristen överskrids har företaget rätt att debitera dröjsmålsränta med gällande diskonto + 20% från förfallodagen.</p>
+                
+                <h4>5). Reservation för prisändringar</h4>
+                <p>Om kostnader för anskaffning eller tillhandahållande av överenskomna varor och tjänster skulle öka till följd av höjda skatter, devalvering, myndigheters beslut eller därmed jämförbara omständigheter är Naturguiden berättigat av ta ut pristillägg som svarar för kostnadsökningen. Naturguiden skall omgående informera beställaren om pristillägget.</p>
+                
+                <h4>6.) Force majeure</h4>
+                <p>Strejk, lockout, eldsvåda, väsentliga inskränkningar i leveranser eller andra omständigheter utanför Naturguidens kontroll berättigar Naturguiden att häva avtalet utan skyldighet att utge skadestånd.</p>
+                
+            </div>
+        </paper-card>
+
+    </template>
+
+    <script>
+        // element registration
+        Polymer({
+          is: "about-agreement",
+
+          // add properties and methods on the element's prototype
+
+          properties: {
+            // declare properties for the element's public API
+          },
+        });
+      </script>
+
+</dom-module>

@@ -19,20 +19,32 @@
                 <iron-selector id="selector" selected="[[actionData.action]]" attr-for-selected="name">
                     <a href="/about/about-us" name="about-us">
                         <div class="flow-text">
-                            <span class="hide-on-small-only">About us</span>
-                            <span class="hide-on-med-and-up">About</span>
+                            <span class="hide-on-small-only">Om oss</span>
+                            <span class="hide-on-med-and-up">Om</span>
                         </div>
                     </a>
                     <a href="/about/contact" name="contact">
                         <div class="flow-text">
-                            <span class="hide-on-small-only">Contact us</span>
-                            <span class="hide-on-med-and-up">Contact</span>
+                            <span class="hide-on-small-only">Kontaktuppgifter</span>
+                            <span class="hide-on-med-and-up">Kontakt</span>
+                        </div>
+                    </a>
+                    <a href="/about/policy" name="policy">
+                        <div class="flow-text">
+                            <span class="hide-on-small-only">Miljö - Etisk policy</span>
+                            <span class="hide-on-med-and-up">Policy</span>
                         </div>
                     </a>
                     <a href="/about/inquiry" name="inquiry">
                         <div class="flow-text">
-                            <span class="hide-on-small-only">Send an inquiry</span>
-                            <span class="hide-on-med-and-up">Booking</span>
+                            <span class="hide-on-small-only">Skicka förfrågan</span>
+                            <span class="hide-on-med-and-up">Förfrågan</span>
+                        </div>
+                    </a>
+                    <a href="/about/agreement" name="agreement">
+                        <div class="flow-text">
+                            <span class="hide-on-small-only">Bokningsregler</span>
+                            <span class="hide-on-med-and-up">Avtal</span>
                         </div>
                     </a>
                 </iron-selector>
@@ -49,9 +61,15 @@
                 <div name="contact">
                     <about-contact><paper-spinner-lite alt="Loading contact page" active></paper-spinner-lite></about-contact>
                 </div>
+                <div name="policy">
+                    <about-policy><paper-spinner-lite alt="Loading policy page" active></paper-spinner-lite></about-policy>
+                </div>
                 <div name="inquiry">
                     <about-inquiry><paper-spinner-lite alt="Loading inquiry page" active></paper-spinner-lite></about-inquiry>
                     <!--<about-contact><paper-spinner-lite alt="Loading contact page" active></paper-spinner-lite></about-contact>-->
+                </div>
+                <div name="agreement">
+                    <about-agreement><paper-spinner-lite alt="Loading agreement page" active></paper-spinner-lite></about-agreement>
                 </div>
             </iron-pages>
         </my-news-container>
@@ -97,17 +115,33 @@
                         this.importHref(resolvedPageUrl, null, this._showPage404, true);
                         var resolvedPageUrl = this.resolveUrl('about/about-contact.html');
                         this.importHref(resolvedPageUrl, null, this._showPage404, true);
-                        break
+                        break;
                     case "contact":
                         var resolvedPageUrl = this.resolveUrl('about/about-contact.html');
                         this.importHref(resolvedPageUrl, null, this._showPage404, true);
                         break;
+
+                    case "policy":
+                        var resolvedPageUrl = this.resolveUrl('about/about-policy.html');
+                        this.importHref(resolvedPageUrl, null, this._showPage404, true);
+                        var resolvedPageUrl = this.resolveUrl('about/about-contact.html');
+                        this.importHref(resolvedPageUrl, null, this._showPage404, true);
+                        break;
+
                     case "inquiry":
                         var resolvedPageUrl = this.resolveUrl('about/about-inquiry.html');
                         this.importHref(resolvedPageUrl, null, this._showPage404, true);
                         var resolvedPageUrl = this.resolveUrl('about/about-contact.html');
                         this.importHref(resolvedPageUrl, null, this._showPage404, true);
                         break;
+
+                    case "agreement":
+                        var resolvedPageUrl = this.resolveUrl('about/about-agreement.html');
+                        this.importHref(resolvedPageUrl, null, this._showPage404, true);
+                        var resolvedPageUrl = this.resolveUrl('about/about-contact.html');
+                        this.importHref(resolvedPageUrl, null, this._showPage404, true);
+                        break;
+
                     default:
                         var resolvedPageUrl = this.resolveUrl('ng-view404.html');
                         this.importHref(resolvedPageUrl, null, this._showPage404, true);
