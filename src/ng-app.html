@@ -36,6 +36,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <!--<link rel="import" href="ng-pictures.html">-->
 
 <dom-module id="ng-app">
+
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = 'https://connect.facebook.net/sv_SE/sdk.js#xfbml=1&version=v2.12';
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
     <template>
         <style is="custom-style" include="shared-styles app-grid-style">
             :host {
@@ -336,6 +346,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <a href="/" condensed-title>
                             <img alt="Naturguiden name" src="../images/name.png">
                         </a>
+
+                        <div class="fb-like" data-href="https://www.naturguiden.com" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+
+
                         <a href="https://www.facebook.com/Naturguiden/">
                             <paper-icon-button icon="128-icons:facebook"></paper-icon-button>
                         </a>
