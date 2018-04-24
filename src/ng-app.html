@@ -276,7 +276,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                             Weekendturer
                         </a>
 
-                        <a href="/info/about-tours" name="about-tours">
+                        <a href="/upplevelser/main-u" name="upplevelser">
                             <iron-icon icon="custom-icons:info"></iron-icon>
                             Upplevelser
                         </a>
@@ -349,7 +349,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <template is="dom-if" if="[[desktopMode]]">
                         <paper-tabs selected="[[page]]" attr-for-selected="name">
                             <paper-tab name="adventures"><a href="/adventures/main">Weekendturer</a></paper-tab>
-                            <paper-tab name="info"><a href="/info/about-tours">Upplevelser</a></paper-tab>
+                            <paper-tab name="upplevelser"><a href="/upplevelser/main-u">Upplevelser</a></paper-tab>
                             <paper-tab name="about"><a href="/about/about-us">Om oss</a></paper-tab>
                         </paper-tabs>
                     </template>
@@ -357,6 +357,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="view404" role="main">
                     <ng-home name="home" desktop="{{desktopMode}}"><paper-spinner-lite alt="Loading start page" active></paper-spinner-lite></ng-home>
                     <ng-adventures name="adventures" desktop="{{desktopMode}}" route="{{subRoute}}"><paper-spinner-lite alt="Loading adventures page" active></paper-spinner-lite></ng-adventures>
+                    <ng-upplevelser name="upplevelser" desktop="{{desktopMode}}" route="{{subRoute}}"><paper-spinner-lite alt="Loading upplevelser page" active></paper-spinner-lite></ng-upplevelser>
                     <ng-info name="info" route="{{subRoute}}"><paper-spinner-lite alt="Loading information page" active></paper-spinner-lite></ng-info>
                     <ng-about name="about" route="{{subRoute}}"><paper-spinner-lite alt="Loading about page" active></paper-spinner-lite></ng-about>
                     <ng-inquiry-success name="inquiry-success"><paper-spinner-lite alt="Loading success page" active></paper-spinner-lite></ng-inquiry-success>
@@ -389,23 +390,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <div class="item">
                             <div>
                                 <input class="footer-checkbox" type="checkbox" checked>
-                                <h3 class="footer-heading">Information</h3>
+                                <h3 class="footer-heading">Upplevelser</h3>
                                 <ul class="list-unstyled footer-list">
                                     <li>
-                                        <a href="/info/about-tours">About our tours</a>
+                                        <a href="/upplevelser/rimforsaraiden">rimforsaraiden</a>
                                     </li>
                                     <li>
-                                        <a href="/info/how-get-here">How to get here</a>
+                                        <a href="/upplevelser/kajak">kajak</a>
                                     </li>
-                                    <li>
-                                        <a href="/info/accommodation">Accommodations</a>
-                                    </li>
-                                    <li>
-                                        <a href="/before-trip">Before the trip</a>
-                                    </li>
-                                    <li>
-                                        <a href="/info/about-sweden">About Sweden</a>
-                                    </li>
+                                   
                                 </ul>
                             </div>
                         </div>

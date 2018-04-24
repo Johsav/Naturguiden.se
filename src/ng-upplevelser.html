@@ -4,9 +4,9 @@
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="shared-styles.html">
 
-<link rel="import" href="adventures/adventures-main.html">
+<link rel="import" href="upplevelser/upplevelser-main-u.html">
 
-<dom-module id="ng-adventures">
+<dom-module id="ng-upplevelser">
 
     <template>
         <style include="shared-styles">
@@ -27,7 +27,7 @@
             }
         </style>
 
-        <!-- local DOM for your element -->
+        <!-- local DOM for your element
 
         <app-route route="{{route}}" pattern="/:action" data="{{actionData}}" tail="{{tail}}"></app-route>
         <div class="submenu pageWidth">
@@ -36,17 +36,17 @@
 
                     <a href="/adventures/skating-weekend" name="skating-weekend">
                         <div class="flow-text">
-                            <span class="hide-on-small-only">Ice skating</span>
-                            <span class="hide-on-med-and-up">Skating</span>
+                            <span class="hide-on-small-only">Upplevelse 1</span>
+                            <span class="hide-on-med-and-up">Upp 1</span>
                         </div>
                     </a>
 
-                    <!--<a href="/adventures/skiing-cabin" name="skiing-cabin">
+                    <a href="/adventures/skiing-cabin" name="skiing-cabin">
                         <div class="flow-text">
                             <span class="hide-on-small-only">Cross country skiing</span>
                             <span class="hide-on-med-and-up">Skiing</span>
                         </div>
-                    </a> -->
+                    </a>
 
                     <a href="/adventures/kayak-weekend" name="kayak-weekend">
                         <div class="flow-text">
@@ -63,24 +63,22 @@
 
                 </iron-selector>
             </paper-card>
-        </div>
+        </div>  -->
 
-        <iron-pages selected="[[actionData.action]]" attr-for-selected="name" fallback-selection="main" role="main">
+        <iron-pages selected="[[actionData.action]]" attr-for-selected="name" fallback-selection="main-u" role="main-u">
             
-            <adventures-main name="main"><paper-spinner-lite alt="Loading adventure-main page" active></paper-spinner-lite></adventures-main>
+            <upplevelser-main-u name="main-u"><paper-spinner-lite alt="Loading upplevelser-main-u page" active></paper-spinner-lite></upplevelser-main-u>
 
             <rimforsaraiden desktop="{{desktop}}" name="rimforsaraiden"><paper-spinner-lite alt="Loading rimforsaraiden page" active></paper-spinner-lite></rimforsaraiden>
+            <kajak desktop="{{desktop}}" name="kajak"><paper-spinner-lite alt="Loading kajak page" active></paper-spinner-lite></kajak>
 
-            <hiking-eightdays desktop="{{desktop}}" name="hiking-eightdays"><paper-spinner-lite alt="Loading hiking page" active></paper-spinner-lite></hiking-eightdays>
-            <hiking-yourown desktop="{{desktop}}" name="hiking-yourown"><paper-spinner-lite alt="Loading hiking page" active></paper-spinner-lite></hiking-yourown>
-
-            <kayak-weekend desktop="{{desktop}}" name="kayak-weekend"><paper-spinner-lite alt="Loading kayak page" active></paper-spinner-lite></kayak-weekend>
+        <!--    <kayak-weekend desktop="{{desktop}}" name="kayak-weekend"><paper-spinner-lite alt="Loading kayak page" active></paper-spinner-lite></kayak-weekend>
             <kayak-yourown desktop="{{desktop}}" name="kayak-yourown"><paper-spinner-lite alt="Loading kayak page" active></paper-spinner-lite></kayak-yourown>
 
             <skating-weekend desktop="{{desktop}}" name="skating-weekend"><paper-spinner-lite alt="Loading skating page" active></paper-spinner-lite></skating-weekend>
             <skating-yourown desktop="{{desktop}}" name="skating-yourown"><paper-spinner-lite alt="Loading skating page" active></paper-spinner-lite></skating-yourown>
             
-        <!--    <skiing-cabin desktop="{{desktop}}" name="skiing-cabin"><paper-spinner-lite alt="Loading skiing page" active></paper-spinner-lite></skiing-cabin>
+            <skiing-cabin desktop="{{desktop}}" name="skiing-cabin"><paper-spinner-lite alt="Loading skiing page" active></paper-spinner-lite></skiing-cabin>
             <skiing-tent desktop="{{desktop}}" name="skiing-tent"><paper-spinner-lite alt="Loading skiing page" active></paper-spinner-lite></skiing-tent>
             <skiing-yourown desktop="{{desktop}}" name="skiing-yourown"><paper-spinner-lite alt="Loading skiing page" active></paper-spinner-lite></skiing-yourown>
         -->
@@ -91,7 +89,7 @@
     <script>
         // element registration
         Polymer({
-          is: "ng-adventures",
+          is: "ng-upplevelser",
 
           // add properties and methods on the element's prototype
 
@@ -115,30 +113,30 @@
 
             _routePageChanged: function(route) {
                 // All adventure packages need to be pressent here in order to be lazy-loaded, for pages not here, user will be redirected to main
-                var adventurePages = ["rimforsaraiden", "skating-weekend", "skating-yourown", "hiking-eightdays", "hiking-yourown", "kayak-weekend", "kayak-yourown", "skating-yourown", "skiing-cabin", "skiing-tent", "skiing-yourown"];
+                var upplevelserPages = ["rimforsaraiden", "kajak"];
                 console.log("routepage chaged to " + route);
                 var found = false;
-                for(var i = 0; i < adventurePages.length; i++){
-                    if(adventurePages[i] == route.toLowerCase()){
+                for(var i = 0; i < upplevelserPages.length; i++){
+                    if(upplevelserPages[i] == route.toLowerCase()){
                         this.action = route;
                         found = true;
                         break;
                     }
                 }
                 if (!found){
-                    this.action = "adventures-main";
+                    this.action = "upplevelser-main-u";
                 }
             },
 
             _pageChanged: function(action) {
                 // Load page import on demand. Show 404 page if fails
                 console.log("page chaged to " + action);
-                var resolvedPageUrl = this.resolveUrl('adventures/' + action + '.html');
+                var resolvedPageUrl = this.resolveUrl('upplevelser/' + action + '.html');
                 this.importHref(resolvedPageUrl, null, this._showPage404, true);
             },
 
             _showPage404: function() {
-                this.action = 'main';
+                this.action = 'main-u';
             },
         });
       </script>
