@@ -4,6 +4,7 @@
   "fragments": [
     "src/ng-home.html",
     "src/ng-adventures.html",
+    "src/ng-upplevelser.html",
     "src/ng-info.html",
     "src/ng-pictures.html",
     "src/ng-about.html",
@@ -19,6 +20,15 @@
     "src/adventures/skiing-tent.html",
     "src/adventures/skiing-cabin.html",
     "src/adventures/skiing-yourown.html",
+    "src/upplevelser/kajak.html",
+    "src/upplevelser/kockduell.html",
+    "src/upplevelser/langfardsskridskor.html",
+    "src/upplevelser/middag.html",
+    "src/upplevelser/multisport.html",
+    "src/upplevelser/prova-pa.html",
+    "src/upplevelser/rimforsaraiden.html",
+    "src/upplevelser/stora-grotturen.html",
+    "src/upplevelser/upplevelser-main-u.html",
     "src/about/about-about-us.html",
     "src/about/about-contact.html",
     "src/about/about-inquiry.html",
@@ -27,6 +37,7 @@
     "src/info/info-accommodation.html",
     "src/info/info-how-get-here.html",
     "src/info/info-weather.html"
+
   ],
     "sources": [
     "src/**/*",
