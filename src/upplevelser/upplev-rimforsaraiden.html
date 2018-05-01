@@ -12,7 +12,7 @@
 
 <link rel="import" href="../shared-styles.html">
 
-<dom-module id="kayak-weekend">
+<dom-module id="upplev-rimforsaraiden">
 
     <template>
         <style is="custom-style" include="iron-flex iron-flex-alignment shared-styles">
@@ -32,10 +32,17 @@
                 <paper-card class="flow-text">
                     <div class="card-content">
 
-                        <h1>Kajak och kanot</h1>
-                        <p class="lead">During three days we kayak in the beautiful archipelago south of Stockholm. Between islands
-                            and skerries, out in the open sea and in secluded caves. We sleep in tents on the islands along
-                            the way, prepare the food over open fire and wash ourselves in rock pools of the Baltic Sea.</p>
+                        <h1>Rimforsaraiden</h1>
+                        <p class="lead">Rimforsaraiden är en av våra populäraste aktiviteter där vi både utforskar en av Sveriges största urbergsgrotta Trollegate med en total längd på 143 meter och firar oss utför en 18 meter hög klippvägg.</p>
+                            
+
+                        <p>Vi börjar med Trollegate grottor där vi delar skyddskläder, lampor och hjälmar innan vi kryper ner i grottan. Samtidigt som gruppen utforskar grottan ska de även gemensamt lösa en uppgift och presentera resultatet ovan mark. När alla är uppe igen väntar kaffe/te och bulle.</p>
+                            
+                        <p>Därefter skall gruppen med hjälp av karta och kompass eller GPS ta sig vidare till Långsbo där firning utför den 18 meter höga klippan väntar.</p>
+                            
+                        <p>Efter ytterligare två kilometers vandring kommer vi fram till lägerplatsen där vi skall laga gemensam middag över öppen eld.</p>
+
+
                         <p>With kayak out on the Baltic sea. Out among thousands of islands, most of them unsettled. The Swedish
                             “allemansrätt” gives us the opportunity to stay on any one of them. There is no fixed tour, the
                             wind and waves affect our plans and you never know where to spend the night. During the day we
@@ -109,8 +116,32 @@
                             <br /> Normally we provide single kayaks K1, but if you prefer a two seat kayak K2 we provide that
                             for you</p>
 
-                        
-                        
+                        <h3>
+                            <div class="not">Not included</div>
+                        </h3>
+                        <P>Alcoholic drinks</P>
+
+
+                        <h3>Included in the price</h3>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td item-width="100">Day I </td>
+                                        <td>Lunch, dinner, guide, rent of equipment</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Day II - III </td>
+                                        <td>Breakfast, lunch, dinner, guide, rent of equipment</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Day IV </td>
+                                        <td>Breakfast, lunch, guide,rent of equipment</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
                     </div>
                 </paper-card>
                 <my-inquiry-card></my-inquiry-card>
@@ -120,14 +151,14 @@
             <div class="packageWidth">
 
                 <my-package-info header="Kayak" subheader="weekend tour" season="May - October" price="From €490" days="4 days/ 3 nights"
-                    lodging="Tent in the archipelago" active link="/adventures/kayak-weekend" desktop="{{desktop}}">
+                    lodging="Tent in the archipelago" active link="/upplevelser/rimforsaraiden" desktop="{{desktop}}">
                     <div class="card-content">
                         An all inclusive guided kayak tour for small groups out in the archipelago of Sweden. Meeting point Trosa harbour south of
                         Stockholm.
                     </div>
                 </my-package-info>
                 <my-package-info header="Kayak" subheader="private tour" season="May - October" price="From €490" days="4 days/ 3 nights"
-                    lodging="Tent" link="/adventures/kayak-yourown" desktop="{{desktop}}">
+                    lodging="Tent" link="/upplevelser/rimforsaraiden" desktop="{{desktop}}">
                     <div class="card-content">
                         Book your own kayak tour with friends or family. Come any day and stay as long as you want.
                     </div>
@@ -150,7 +181,7 @@
     <script>
         // element registration
         Polymer({
-            is: "kayak-weekend",
+            is: "upplev-rimforsaraiden",
             properties: {
                 desktop: {
                     type: Boolean,

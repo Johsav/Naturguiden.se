@@ -27,24 +27,24 @@
             }
         </style>
 
-        <!-- local DOM for your element
+        <!-- local DOM for your element  -->
 
         <app-route route="{{route}}" pattern="/:action" data="{{actionData}}" tail="{{tail}}"></app-route>
-        <div class="submenu pageWidth">
+<!--        <div class="submenu pageWidth">
             <paper-card>
                 <iron-selector id="selector" selected="[[actionData.action]]" attr-for-selected="name">
 
-                    <a href="/adventures/skating-weekend" name="skating-weekend">
+                    <a href="/upplevelser/rimforsaraiden" name="rimforsaraiden">
                         <div class="flow-text">
-                            <span class="hide-on-small-only">Upplevelse 1</span>
-                            <span class="hide-on-med-and-up">Upp 1</span>
+                            <span class="hide-on-small-only">Rimforsaraiden</span>
+                            <span class="hide-on-med-and-up">Rimf</span>
                         </div>
                     </a>
 
-                    <a href="/adventures/skiing-cabin" name="skiing-cabin">
+                    <a href="/upplevelser/kajak-u" name="kajak">
                         <div class="flow-text">
-                            <span class="hide-on-small-only">Cross country skiing</span>
-                            <span class="hide-on-med-and-up">Skiing</span>
+                            <span class="hide-on-small-only">Kajak</span>
+                            <span class="hide-on-med-and-up">Kajak</span>
                         </div>
                     </a>
 
@@ -59,29 +59,24 @@
                         <div class="flow-text">
                             Hiking
                         </div>
-                    </a>
+                    </a>-->
 
                 </iron-selector>
             </paper-card>
-        </div>  -->
+        </div>
 
         <iron-pages selected="[[actionData.action]]" attr-for-selected="name" fallback-selection="main-u" role="main-u">
             
             <upplevelser-main-u name="main-u"><paper-spinner-lite alt="Loading upplevelser-main-u page" active></paper-spinner-lite></upplevelser-main-u>
 
-            <rimforsaraiden desktop="{{desktop}}" name="rimforsaraiden"><paper-spinner-lite alt="Loading rimforsaraiden page" active></paper-spinner-lite></rimforsaraiden>
-            <kajak desktop="{{desktop}}" name="kajak"><paper-spinner-lite alt="Loading kajak page" active></paper-spinner-lite></kajak>
-
-        <!--    <kayak-weekend desktop="{{desktop}}" name="kayak-weekend"><paper-spinner-lite alt="Loading kayak page" active></paper-spinner-lite></kayak-weekend>
-            <kayak-yourown desktop="{{desktop}}" name="kayak-yourown"><paper-spinner-lite alt="Loading kayak page" active></paper-spinner-lite></kayak-yourown>
-
-            <skating-weekend desktop="{{desktop}}" name="skating-weekend"><paper-spinner-lite alt="Loading skating page" active></paper-spinner-lite></skating-weekend>
-            <skating-yourown desktop="{{desktop}}" name="skating-yourown"><paper-spinner-lite alt="Loading skating page" active></paper-spinner-lite></skating-yourown>
-            
-            <skiing-cabin desktop="{{desktop}}" name="skiing-cabin"><paper-spinner-lite alt="Loading skiing page" active></paper-spinner-lite></skiing-cabin>
-            <skiing-tent desktop="{{desktop}}" name="skiing-tent"><paper-spinner-lite alt="Loading skiing page" active></paper-spinner-lite></skiing-tent>
-            <skiing-yourown desktop="{{desktop}}" name="skiing-yourown"><paper-spinner-lite alt="Loading skiing page" active></paper-spinner-lite></skiing-yourown>
-        -->
+            <upplev-rimforsaraiden desktop="{{desktop}}" name="upplev-rimforsaraiden"><paper-spinner-lite alt="Loading rimforsaraiden page" active></paper-spinner-lite></upplev-rimforsaraiden>
+            <upplev-kajak desktop="{{desktop}}" name="upplev-kajak"><paper-spinner-lite alt="Loading kajak page" active></paper-spinner-lite></upplev-kajak>
+            <upplev-kockduell desktop="{{desktop}}" name="upplev-kockduell"><paper-spinner-lite alt="Loading kockduell page" active></paper-spinner-lite></upplev-kockduell>
+            <upplev-langfardsskridskor desktop="{{desktop}}" name="upplev-langfardsskridskor"><paper-spinner-lite alt="Loading langfardsskridskor page" active></paper-spinner-lite></upplev-langfardsskridskor>
+            <upplev-middag desktop="{{desktop}}" name="upplev-middag"><paper-spinner-lite alt="Loading middag page" active></paper-spinner-lite></upplev-middag>
+            <upplev-multisport desktop="{{desktop}}" name="upplev-multisport"><paper-spinner-lite alt="Loading multisport page" active></paper-spinner-lite></upplev-multisport>
+            <upplev-prova-pa desktop="{{desktop}}" name="upplev-prova-pa"><paper-spinner-lite alt="Loading prova-pa page" active></paper-spinner-lite></upplev-prova-pa>
+            <upplev-stora-grotturen desktop="{{desktop}}" name="upplev-stora-grotturen"><paper-spinner-lite alt="Loading stora-grotturen page" active></paper-spinner-lite></upplev-stora-grotturen>
         </iron-pages>
 
     </template>
@@ -113,7 +108,7 @@
 
             _routePageChanged: function(route) {
                 // All adventure packages need to be pressent here in order to be lazy-loaded, for pages not here, user will be redirected to main
-                var upplevelserPages = ["rimforsaraiden", "kajak"];
+                var upplevelserPages = ["upplev-rimforsaraiden", "upplev-kajak", "upplev-kockduell", "upplev-langfardsskridskor", "upplev-middag", "upplev-multisport", "upplev-prova-pa", "upplev-stora-grotturen"];
                 console.log("routepage chaged to " + route);
                 var found = false;
                 for(var i = 0; i < upplevelserPages.length; i++){
