@@ -12,7 +12,7 @@
 
 <link rel="import" href="../shared-styles.html">
 
-<dom-module id="upplev-langfardsskridskor">
+<dom-module id="upplev-turskidor">
 
     <template>
         <style is="custom-style" include="iron-flex iron-flex-alignment shared-styles">
@@ -32,8 +32,11 @@
                 <paper-card class="flow-text">
                     <div class="card-content">
 
-                        <h1>Långfärdsskridskor</h1>
-                        <p class="lead">Med långa benrörelser tar vi oss fram över det frusna vattnet. Vinden biter i ansiktet och solen värmer på ryggen. Under oss ligger den decimetertjocka isen och tryggar vår färd framåt. Nästan lika fint som skridskoåkningen är sedan fikarasten där vi sitter i solen på någon ö och dricker varm choklad.</p>
+                        <h1>Fjälltur i vinter</h1>
+                        <p class="lead">Upplev våra svenska vinterfjäll, gärna på vår/vintern med långa ljus dagar. Härlig skidåkning, sköna fikastunder i solgropen som vi grävt</p>
+                        <p>Övernattning i STF stugor eller stationer, eller varför inte någon natt i tält eller snöbivack.</p>
+                        <p>Turerna är anpassade så att alla ska kunna följa med, lagom brant, lagom långt.</p>
+
                         <p>Östergötland erbjuder unika möjligheter att åka längfärdsskridskor. Den variation på vattendrag som finns gör att det vintertid nästan alltid finns åkbara vatten. Däremot kan det vara svårt att i förväg exakt bestämma vart det går att åka.</p>
                         <h3>Upplev långfärdsskridskor tillsammans</h3>
                         <p>Du kanske vet hur fantastisk det är med långfärdsskridskor, att få glida ut på isen som ligger slät och fin över hela sjön. Nu har du möjlighet att dela den upplevelsen med dina vänner eller arbetskamrater. Vi har all den utrustning som behövs och våra duktiga guider ser till att turen blir säker</p>
@@ -50,7 +53,7 @@
 
                         <h4>Weekendtur</h4>
                         <P><i>Eller varför inte följa med på någon av våra weekendturer. Mycket populärt hos våra utländska gäster, kanske något även för dig?</i></P>
-                        <p>Du hittar årets datum på vår internationella sida <a href="https://www.naturguiden.com/adventures/skating-weekend"> www.naturguiden.com</a></P>
+                        <p>Du hittar årets datum på vår internationella sida <a href="https://www.naturguiden.com/adventures/skiing-cabin"> www.naturguiden.com</a></P>
                     </div>
                 </paper-card>
                 <my-inquiry-card></my-inquiry-card>
@@ -60,9 +63,9 @@
             <div class="packageWidth">
 
                     <my-inquiry-button hidden="{{!desktop}}"></my-inquiry-button>
-                    <my-package-info header="Långfärdsskridskor" number="2 - 24 personer" time="2 timmar - 1 heldag" place="Östergötland" season="Januari - Mars" price="Från 500 kr/person" included="Hyra av skridskor och nödvändig säkerhetsutrustning" desktop="{{desktop}}">
+                    <my-package-info header="Vintertur" number="4 - 16 personer" time="2 - flera dagar" place="Jämtlandsfjällen" season="Mars - April" price="offert" included="Nödvändig utrustning" desktop="{{desktop}}">
                         <div class="card-content">
-                            prova på eller en heldag ute på isen.
+                            en vintertur i våra svenska fjäll
                         </div>
                     </my-package-info>
 
@@ -82,7 +85,7 @@
     <script>
         // element registration
         Polymer({
-            is: "upplev-langfardsskridskor",
+            is: "upplev-turskidor",
             properties: {
                 desktop: {
                     type: Boolean,

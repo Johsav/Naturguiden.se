@@ -78,6 +78,7 @@
             <upplev-multisport desktop="{{desktop}}" name="upplev-multisport"><paper-spinner-lite alt="Loading multisport page" active></paper-spinner-lite></upplev-multisport>
             <upplev-prova-pa desktop="{{desktop}}" name="upplev-prova-pa"><paper-spinner-lite alt="Loading prova-pa page" active></paper-spinner-lite></upplev-prova-pa>
             <upplev-stora-grotturen desktop="{{desktop}}" name="upplev-stora-grotturen"><paper-spinner-lite alt="Loading stora-grotturen page" active></paper-spinner-lite></upplev-stora-grotturen>
+            <upplev-turskidor desktop="{{desktop}}" name="upplev-turskidor"><paper-spinner-lite alt="Loading turskidor" active></paper-spinner-lite></upplev-turskidor>
         </iron-pages>
 
     </template>
@@ -109,7 +110,7 @@
 
             _routePageChanged: function(route) {
                 // All adventure packages need to be pressent here in order to be lazy-loaded, for pages not here, user will be redirected to main
-                var upplevelserPages = ["upplev-rimforsaraiden", "upplev-kajak", "upplev-kockduell", "upplev-langfardsskridskor", "kurs-langfardsskridskor", "upplev-middag", "upplev-multisport", "upplev-prova-pa", "upplev-stora-grotturen"];
+                var upplevelserPages = ["upplev-rimforsaraiden", "upplev-kajak", "upplev-kockduell", "upplev-langfardsskridskor", "kurs-langfardsskridskor", "upplev-middag", "upplev-multisport", "upplev-prova-pa", "upplev-stora-grotturen", "upplev-turskidor"];
                 console.log("routepage chaged to " + route);
                 var found = false;
                 for(var i = 0; i < upplevelserPages.length; i++){
