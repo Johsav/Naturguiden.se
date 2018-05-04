@@ -73,6 +73,7 @@
             <upplev-kajak desktop="{{desktop}}" name="upplev-kajak"><paper-spinner-lite alt="Loading kajak page" active></paper-spinner-lite></upplev-kajak>
             <upplev-kockduell desktop="{{desktop}}" name="upplev-kockduell"><paper-spinner-lite alt="Loading kockduell page" active></paper-spinner-lite></upplev-kockduell>
             <upplev-langfardsskridskor desktop="{{desktop}}" name="upplev-langfardsskridskor"><paper-spinner-lite alt="Loading langfardsskridskor page" active></paper-spinner-lite></upplev-langfardsskridskor>
+            <kurs-langfardsskridskor desktop="{{desktop}}" name="kurs-langfardsskridskor"><paper-spinner-lite alt="Loading langfardsskridskor page" active></paper-spinner-lite></kurs-langfardsskridskor>
             <upplev-middag desktop="{{desktop}}" name="upplev-middag"><paper-spinner-lite alt="Loading middag page" active></paper-spinner-lite></upplev-middag>
             <upplev-multisport desktop="{{desktop}}" name="upplev-multisport"><paper-spinner-lite alt="Loading multisport page" active></paper-spinner-lite></upplev-multisport>
             <upplev-prova-pa desktop="{{desktop}}" name="upplev-prova-pa"><paper-spinner-lite alt="Loading prova-pa page" active></paper-spinner-lite></upplev-prova-pa>
@@ -108,7 +109,7 @@
 
             _routePageChanged: function(route) {
                 // All adventure packages need to be pressent here in order to be lazy-loaded, for pages not here, user will be redirected to main
-                var upplevelserPages = ["upplev-rimforsaraiden", "upplev-kajak", "upplev-kockduell", "upplev-langfardsskridskor", "upplev-middag", "upplev-multisport", "upplev-prova-pa", "upplev-stora-grotturen"];
+                var upplevelserPages = ["upplev-rimforsaraiden", "upplev-kajak", "upplev-kockduell", "upplev-langfardsskridskor", "kurs-langfardsskridskor", "upplev-middag", "upplev-multisport", "upplev-prova-pa", "upplev-stora-grotturen"];
                 console.log("routepage chaged to " + route);
                 var found = false;
                 for(var i = 0; i < upplevelserPages.length; i++){

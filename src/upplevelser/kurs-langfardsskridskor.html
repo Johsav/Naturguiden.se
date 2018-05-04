@@ -1,0 +1,122 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../elements/my-left-image-paper-card.html">
+<link rel="import" href="../../elements/my-package-info.html">
+<link rel="import" href="../../elements/my-inquiry-button.html">
+<link rel="import" href="../../elements/my-inquiry-card.html">
+<link rel="import" href="../../elements/materialize-slider-kayak.html">
+
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="kurs-langfardsskridskor">
+
+    <template>
+        <style is="custom-style" include="iron-flex iron-flex-alignment shared-styles">
+            /* CSS rules for your element */
+        </style>
+
+        <!-- local DOM for your element -->
+
+        <div class="layout horizontal layout-start pageWidth pageMargin">
+            <div>
+                <template is="dom-if" if="{{desktop}}">
+                    <materialize-slider-kayak desktop>
+                        <paper-spinner-lite alt="Loading slider" active></paper-spinner-lite>
+                    </materialize-slider-kayak>
+                </template>
+
+                <paper-card class="flow-text">
+                    <div class="card-content">
+
+                        <h1>Kurs Iskunskap - Långfärdsskridskor</h1>
+                        <p class="lead">Vill du lära dig allt man behöver veta för att på ett säkert sätt kunna ge sig ut med långfärdsskridskor på våra fantastiska isar?</p>
+                        <p>Naturguiden tillsammans med Björkfors Vandrarhem erbjuder den här säsongen en introduktionskurs i Långfärdsskridskoåkning. Du lär dig det du behöver veta för att på egen hand (men förstås inte ensam) ge dig ut på isen.
+                                
+                        <p>Mycket av fokus ligger på säkerhet men vi pratar även mycket om hur man hittar till de bästa isarna i Östergötland.</p>
+                                
+                        <p>Vi kan även genomföra en anpassad kurs just för Er, kanske på plats hos Er.</p>
+
+                        <h3>Kursdatum:</h3>
+                        <ul class="flame-list">
+                            <li>29 - 30 Dec 2018:  Helgkurs Björkfors</li>
+                            <li>10 jan + 12 jan 2019: Kväll/Helgkurs Linköping</li>
+                        </ul>
+
+                        <h3>Vi går igenom</h3>
+                        <ul class="flame-list">
+                            <li>Utrustning Ni får bland annat möjlighet att prova olika typer av skridskor etc. </li>
+                            <li>Iskunskap teoretiskt och praktiskt ute på isen.</li>
+                            <li>Säkerhet där Ni även får möjlighet att prova på att gå genom isen (frivilligt).</li>
+                            <li>Skridskonätet, hur hittar men den bästa skridskoisen.</li>
+                            <li>LLK (Linköping Långfärdskridskiklubb): Hur fungerar LLK's turer? Hur blir jag medlem?</li>
+                        </ul>
+                        <h3>Helgkurs i björkfors, eller kvällskurs i Linköping</h3>
+                        <P>Kursen innehåller en teoridel på ca tre timmar och en praktisk del då vi är ute på isen. Välj mellan helgkurs i Björkfors eller kväll + lördag i Linköping. Eller boka en egen anpassad kurs för dig och dina vänner / arbetskamrater.</P>
+                        <p>Kursen genomförs i början av säsongen så att Ni har möjlighet att njuta av långfärdsskridskor hela säsongen. Vi har ett kursdatum i början av Januari, men kommer isen tidigare och intresse finns kan vi erbjuda kurs redan i december.</p>
+                        <p><a href="/about/inquiry">Kontakta oss</a> för mer information</p>
+
+                        <h3>Helgkurs i Björkfors</h3>
+                        <p>Vi börjar vid 10.oo med genomgång av utrustningen. Efter lunchen (som ingår) är det dags för en tur på sjön. På kvällen middag, mer teori, möjlighet att bada bastu och prova att gå igenom isen.</p>
+                        <p>Söndagen tillbringar vi ute på isen, vi praktiserar allt vi lärt oss. Vi avslutar söndag eftermiddag med en stund inne där vi sammanfattar vad vi gått igenom och svarar på alla frågor som har dykt upp under dagen.</p>
+                        <ul>
+                            <li>Kursdatum: 29-30 december - 2018</li>
+                            <li>Pris: 1600 kr/person inkl mat och boende</li>
+                        </ul>
+                        <p>Eget kurstillfälle: Om Ni är minst 4 personer ordnar vi en egen kurs just för Er, Ni bestämmer datum själva.</p>
+
+                        <h3>Kväll + lördagskurs Linköping</h3>
+                        <p>Vi samlas i Linköping en veckokväll där vi går igenom allt om Långfärdsskridskoåkning som man behöver känna till för att kunna ge sig ut på isen på ett säkert sätt. Följande lördag ger vi oss ut och åker långfärdsskridskor, vi praktiserar allt vi lärt oss och repeterar det viktigaste, säkerhet.</p>
+                                
+                        <p>Kursen anpassas efter deltagarnas intresse och förkunskaper.</p>
+
+                        <ul>
+                            <li>Kursdatum: torsdag 10 jan kl 18:00 + lördag 12 jan - 2019</li>
+                            <li>Pris: 650 kr/person inkl mat och boende</li>
+                        </ul>
+                        <p>Eget kurstillfälle: Om Ni är minst 4 personer ordnar vi en egen kurs just för Er, Ni bestämmer datum själva.</p>
+
+                    </div>
+                </paper-card>
+                <my-inquiry-card></my-inquiry-card>
+            </div>
+
+            <div class="packageWidthPlaceholder"></div>
+            <div class="packageWidth">
+
+                    <my-inquiry-button hidden="{{!desktop}}"></my-inquiry-button>
+                    <my-package-info header="Kurs Iskunskap" number="2 - 24 personer" time="3 + 4 timmar" place="Östergötland" season="December - Mars" price="Från 650 kr/person" included="Hyra av skridskor och nödvändig säkerhetsutrustning" desktop="{{desktop}}">
+                        <div class="card-content">
+                            Lär dig allt du behöver veta för att på egen hand ge dig ut på långfärdsskridskor.
+                        </div>
+                    </my-package-info>
+
+            </div>
+        </div>
+        <template is="dom-if" if="{{!desktop}}">
+            <div class="layout horizontal layout-start pageWidth pageMargin">
+                <paper-card>
+                    <materialize-slider-kayak desktop>
+                        <paper-spinner-lite alt="Loading slider" active></paper-spinner-lite>
+                    </materialize-slider-kayak>
+                </paper-card>
+            </div>
+        </template>
+    </template>
+
+    <script>
+        // element registration
+        Polymer({
+            is: "kurs-langfardsskridskor",
+            properties: {
+                desktop: {
+                    type: Boolean,
+                    reflectToAttribute: true
+                }
+            }
+        });
+    </script>
+</dom-module>
