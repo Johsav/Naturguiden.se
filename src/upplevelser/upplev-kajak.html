@@ -62,7 +62,11 @@
             <div class="packageWidth">
 
                 <my-inquiry-button hidden="{{!desktop}}"></my-inquiry-button>
-
+                <my-package-info header="Kajak  kanot" number="8 - 50 personer" time="3 timmar - flera dagar" place="Vart som helst" season="maj - oktober" price="Från 1000 kr/person" included="Hyra av kajak/kanot och flytväst, guide/instruktör" desktop="{{desktop}}">
+                    <div class="card-content">
+                        Upplev kajak eller kanot tillsammans.
+                    </div>
+                </my-package-info>
             </div>
         </div>
         <template is="dom-if" if="{{!desktop}}">
