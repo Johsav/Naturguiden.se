@@ -58,14 +58,15 @@
 
         <paper-card class="flow-text">
             <div class="card-content">
-                <h1>Skicka förfrågan</h1>
-                <p>Skicka gärna en förfrågan via formuläret, eller kontakta oss via epost <a href="mailto: john@naturguiden.se">john@naturguiden.se</a> eller telefon <a href="tel:+46-705-353-630">+46 70 53 53 630</a><br/>
-                   Tack för att du kontaktar oss!</p>
+                <h1>Send an inquiry</h1>
+                <p>Please use the form below to contact us about a trip you are interested in or any further questions. <br/>
+                   We look forward to hear from you! -2</p>
                     <p style="color:red; font-size: 1.7em">[[warningMessage]]<p>
                     <form   is="iron-form"
                             id="form"
                             method="post"
-                            action="/about/post.php"
+                            action="/src/about/post.php"
+
                             content-type="application/json"
                             on-iron-form-error="_handleError"
                             on-iron-form-response="_handleResponse"
@@ -73,45 +74,68 @@
                             on-iron-form-invalid="_handleInvalid"
                             class="app-grid">
                         <div class="item">
-                            <vaadin-date-picker name="StartDate" label="Startdag">
+                            <vaadin-date-picker name="StartDate" label="Start Date">
                             </vaadin-date-picker>
                         </div>
                         <div class="item">
-                            <vaadin-date-picker name="EndDate" label="Slutdag">
+                            <vaadin-date-picker name="EndDate" label="End Date">
                             </vaadin-date-picker>
                         </div>
                         <div class="item fullWidth">
-                            <paper-input type="number" label="Antal personer" name="NumberOfPeople" min=1 max=99></paper-input>
+                            <paper-input type="number" label="Number of people" name="NumberOfPeople" min=1 max=99></paper-input>
                         </div>
                         <div  class="item">
-                            <label id="subCategoryLabel">Typ av aktivitet</label>
+                            <label id="categoryLabel">Adventure</label>
+                            <paper-radio-group attr-for-selected="value" aria-labelledby="categoryLabel" allow-empty-selection>
+                                <paper-radio-button name="Category" value="skating">Skating</paper-radio-button>
+                                <paper-radio-button name="Category" value="skiing">Skiing</paper-radio-button>
+                                <paper-radio-button name="Category" value="kayak">Kayak</paper-radio-button>
+                                <paper-radio-button name="Category" value="hiking">Hiking</paper-radio-button>
+                                <paper-radio-button name="Category" value="other">Other</paper-radio-button>
+                            </paper-radio-group>
+                        </div>
+                        <div  class="item">
+                            <label id="subCategoryLabel">Package</label>
                             <paper-radio-group attr-for-selected="value" aria-labelledby="subCategoryLabel" allow-empty-selection>
-                                <paper-radio-button name="SubCategory" value="weekend">Weekendtur</paper-radio-button>
-                                <paper-radio-button name="SubCategory" value="yourown">Aktivitet för en grupp</paper-radio-button>
-                                <paper-radio-button name="SubCategory" value="other">Någonting annat</paper-radio-button>
+                                <paper-radio-button name="SubCategory" value="weekend">Weekend tour</paper-radio-button>
+                                <!--<paper-radio-button name="SubCategory" value="cabin">Cabin tour</paper-radio-button>
+                                <paper-radio-button name="SubCategory" value="tent">Tent tour</paper-radio-button> -->
+                                <paper-radio-button name="SubCategory" value="yourown">Your own tour</paper-radio-button>
+                                <paper-radio-button name="SubCategory" value="other">Something else</paper-radio-button>
                             </paper-radio-group>
                         </div>
                         <div class="item fullWidth">
-                            <paper-textarea label="Meddelande" rows="8" name="Comment"></paper-textarea>
+                            <paper-textarea label="Message" rows="8" name="Comment"></paper-textarea>
                         </div>
-                        <h3 class="item fullWidth">Dina uppgifter</h3>
+                        <h3 class="item fullWidth">Contact person</h3>
                         <div class="item">
-                            <paper-input type="text" name="FirstName" label="Namn*" required auto-validate autocomplete error-message="A name is required"></paper-input>
-                        </div>
-                        <div class="item">
-                            <gold-email-input name="Email" label="E-post*" required auto-validate autocomplete error-message="Email is required"></gold-email-input>
+                            <paper-input type="text" name="FirstName" label="First Name*" required auto-validate autocomplete error-message="A name is required"></paper-input>
                         </div>
                         <div class="item">
-                            <paper-input type="phone" name="Phone" label="Telefon"></paper-input>
+                            <paper-input type="text" name="LastName" label="Last Name*" required auto-validate autocomplete error-message="A name is required"></paper-input>
                         </div>
+                        <div class="item">
+                            <gold-email-input name="Email" label="Email*" required auto-validate autocomplete error-message="Email is required"></gold-email-input>
+                        </div>
+                        <div class="item">
+                            <paper-input type="phone" name="Phone" label="Phone number"></paper-input>
+                        </div>
+                        <div class="item">
+                            <paper-input type="text" name="Country" label="Country"></paper-input>
+                        </div>
+
                         <paper-button on-tap="_sendForm" noink="{{sendingForm}}" disabled="{{sendingForm}}" raised="{{!sendingForm}}" class="main-btn">
-                            <paper-spinner-lite id="spinner" active="{{sendingForm}}" hidden="{{!sendingForm}}"></paper-spinner-lite>Skicka
+                            <paper-spinner-lite id="spinner" active="{{sendingForm}}" hidden="{{!sendingForm}}"></paper-spinner-lite>Send
                         </paper-button>
-                        <paper-button on-tap="_clearForm" noink="{{sendingForm}}" disabled="{{sendingForm}}" raised="{{!sendingForm}}">Rensa formulär</paper-button>
+
+                        <paper-button on-tap="_clearForm" noink="{{sendingForm}}" disabled="{{sendingForm}}" raised="{{!sendingForm}}">Clear form</paper-button>
+                   </form>
+
+
+
+                  <form method="get" action="/src/about/inquiry-success" id="nativeForm">
                     </form>
-                   <!-- <form method="get" action="/inquiry-success" id="nativeForm">
-                    </form>  -->
-             </div>
+            </div>
         </paper-card>
 
     </template>
@@ -166,8 +190,8 @@
                 this.fire("scroll-top");
                 console.log("Failed to post form");
                 this.sendingForm = false;
-                this.warningMessage = 'Vi är ledsna, av någon märklig anledning funkade det inte. Kontakta oss istället via epost eller telefon.';
-            }
+                this.warningMessage = 'We are sorry, for some reason posting this form failed.';
+            } 
         });
       </script>
 
