@@ -25,19 +25,19 @@
 			$mailto1 = "john@naturguiden.se";
 			 
 			$form_message1 = "<html><body><p>Meddelande skickat från Naturguiden.se Inquiry form\n<br/>
-			<b>FirstName:</b> ".$FirstName." \n<br/>
-			<b>LastName:</b> ".$LastName." \n <br/>
-			<b>Email:</b> ".$Email." \n<br/>
-			<b>Phone:</b> ".$Phone." \n<br/>
-			<b>Country:</b> ".$_POST["Country"]." \n<br/>
+			<b>Namn:</b> ".$FirstName." \n<br/>
+			
+			<b>Epost:</b> ".$Email." \n<br/>
+			<b>Telefon:</b> ".$Phone." \n<br/>
+			
 			<br />
-			<b>NumberOfPeople:</b> ".$NumberOfPeople." \n<br/>
-			<b>StartDate:</b> ".$StartDate." \n<br/>
-			<b>EndDate:</b> ".$EndDate." \n<br/>
-			<b>Category:</b> ".$Category." \n<br/>
-			<b>SubCategory:</b> ".$SubCategory." \n<br/>
+			<b>Antal:</b> ".$NumberOfPeople." \n<br/>
+			<b>Startdatum:</b> ".$StartDate." \n<br/>
+			<b>Slutdatum:</b> ".$EndDate." \n<br/>
+			
+			<b>Aktivitet:</b> ".$SubCategory." \n<br/>
 			<br>
-			<b>Comment:</b> ".$Comment." </p></body></html>"; 
+			<b>Meddelande:</b> ".$Comment." </p></body></html>"; 
 	 
 			$sent = mail($mailto1, $subject1, $form_message1, $headers);
 
@@ -46,11 +46,11 @@
 			$mailto2 = $Email;
 			 
 			$form_message2 = "<html><body><p>Tack ".$FirstName." för din förfrågan. Vi återkommer så snart som möjligt..\n<br/><br/>
-			<b>Förnamn:</b> ".$FirstName." \n<br/>
-			<b>Efternamn:</b> ".$LastName." \n<br/> 
+			<b>Namn:</b> ".$FirstName." \n<br/>
+			
 			<b>Epost:</b> ".$Email." \n<br/>
-			<b>Tel:</b> ".$Phone." \n<br/>
-			<b>Land:</b> ".$Country." \n<br/>
+			<b>Telefon:</b> ".$Phone." \n<br/>
+			
 			<br />
 			<b>Antal:</b> ".$NumberOfPeople." \n<br/>
 			<b>Startdatum:</b> ".$StartDate." \n<br/>
@@ -58,7 +58,7 @@
 			
 			<b>Aktivitet:</b> ".$SubCategory." \n<br/>
 			<br>
-			<b>Kommentar:</b> ".$Comment." <br/>
+			<b>Meddelande:</b> ".$Comment." <br/>
 			<br/>
 			
 			/John Savelid <br/>

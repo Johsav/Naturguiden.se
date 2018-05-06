@@ -65,7 +65,7 @@
                     <form   is="iron-form"
                             id="form"
                             method="post"
-                            action="/about/post.php"
+                            action="/src/about/post.php"
                             content-type="application/json"
                             on-iron-form-error="_handleError"
                             on-iron-form-response="_handleResponse"
@@ -73,22 +73,22 @@
                             on-iron-form-invalid="_handleInvalid"
                             class="app-grid">
                         <div class="item">
-                            <vaadin-date-picker name="StartDate" label="Startdag">
+                            <vaadin-date-picker name="StartDate" label="Startdatum">
                             </vaadin-date-picker>
                         </div>
                         <div class="item">
-                            <vaadin-date-picker name="EndDate" label="Slutdag">
+                            <vaadin-date-picker name="EndDate" label="Slutdatum">
                             </vaadin-date-picker>
                         </div>
                         <div class="item fullWidth">
-                            <paper-input type="number" label="Antal personer" name="NumberOfPeople" min=1 max=99></paper-input>
+                            <paper-input type="number" label="Antal personer" name="NumberOfPeople" min=1 max=500></paper-input>
                         </div>
                         <div  class="item">
-                            <label id="subCategoryLabel">Typ av aktivitet</label>
+                            <label id="subCategoryLabel">Typ av aktivitet:</label>
                             <paper-radio-group attr-for-selected="value" aria-labelledby="subCategoryLabel" allow-empty-selection>
-                                <paper-radio-button name="SubCategory" value="weekend">Weekendtur</paper-radio-button>
-                                <paper-radio-button name="SubCategory" value="yourown">Aktivitet för en grupp</paper-radio-button>
-                                <paper-radio-button name="SubCategory" value="other">Någonting annat</paper-radio-button>
+                                <paper-radio-button name="SubCategory" value="Weekendtur">Weekendtur</paper-radio-button>
+                                <paper-radio-button name="SubCategory" value="Aktivitet för en grupp">Aktivitet för en grupp</paper-radio-button>
+                                <paper-radio-button name="SubCategory" value="Annat">Någonting annat</paper-radio-button>
                             </paper-radio-group>
                         </div>
                         <div class="item fullWidth">
