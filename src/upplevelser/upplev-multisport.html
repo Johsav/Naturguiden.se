@@ -8,7 +8,7 @@
 <link rel="import" href="../../elements/my-package-info.html">
 <link rel="import" href="../../elements/my-inquiry-button.html">
 <link rel="import" href="../../elements/my-inquiry-card.html">
-<link rel="import" href="../../elements/materialize-slider-kayak.html">
+<link rel="import" href="../../elements/materialize-slider-multisport.html">
 
 <link rel="import" href="../shared-styles.html">
 
@@ -24,9 +24,9 @@
         <div class="layout horizontal layout-start pageWidth pageMargin">
             <div>
                 <template is="dom-if" if="{{desktop}}">
-                    <materialize-slider-kayak desktop>
+                    <materialize-slider-multisport desktop>
                         <paper-spinner-lite alt="Loading slider" active></paper-spinner-lite>
-                    </materialize-slider-kayak>
+                    </materialize-slider-multisport>
                 </template>
 
                 <paper-card class="flow-text">
@@ -64,9 +64,9 @@
         <template is="dom-if" if="{{!desktop}}">
             <div class="layout horizontal layout-start pageWidth pageMargin">
                 <paper-card>
-                    <materialize-slider-kayak desktop>
+                    <materialize-slider-multisport desktop>
                         <paper-spinner-lite alt="Loading slider" active></paper-spinner-lite>
-                    </materialize-slider-kayak>
+                    </materialize-slider-multisport>
                 </paper-card>
             </div>
         </template>
